@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akram Ko Portfolio - Language</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section id="language-selection">
+  <h1>Choose Your Language</h1>
+  <button onclick="goToPage('en')">English</button>
+  <button onclick="goToPage('fr')">Français</button>
+  <button onclick="goToPage('es')">Español</button>
+</section>
+
+<script>
+  function goToPage(lang){
+    // Save language to sessionStorage for other pages
+    sessionStorage.setItem('lang', lang);
+    window.location.href = 'about.html';
+  }
+</script>
+</body>
+</html>
