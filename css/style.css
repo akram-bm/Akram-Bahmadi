@@ -189,3 +189,67 @@ body, html {
   .portfolio-nav .btn { font-size: 0.9rem; padding: 8px 15px; }
   .card { padding: 15px; }
 }
+
+/* ===== PORTFOLIO PAGE ===== */
+.portfolio {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, #00b894, #0984e3);
+}
+
+.portfolio-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.portfolio-nav .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+/* Hide all sections by default */
+.portfolio-content {
+  display: none;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  grid-gap: 20px;
+}
+
+/* Show section if targeted */
+.portfolio-content:target {
+  display: grid;
+}
+
+/* Portfolio cards */
+.card {
+  background: white;
+  color: #2f3640;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* Fade-in for portfolio header */
+.portfolio h1,
+.portfolio p {
+  animation: fadeInUp 1s forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portfolio-nav .btn { font-size: 0.9rem; padding: 8px 15px; }
+  .card { padding: 15px; }
+}
