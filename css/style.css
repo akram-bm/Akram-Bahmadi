@@ -2,99 +2,65 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0; padding: 0;
-  background: #f5f6fa;
-  color: #2f3640;
-}
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  padding: 20px;
-}
-img { width: 180px; border-radius: 50%; margin-bottom: 20px; border: 4px solid #00b894; }
-
-/* ===== BUTTONS ===== */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  margin: 10px;
-  background: #0984e3;
+  background: #0f172a;
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  background: #0652dd;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* ===== PORTFOLIO ===== */
-.portfolio-nav {
-  margin: 20px 0;
-}
-.portfolio-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  width: 90%;
-  max-width: 1000px;
-  margin-top: 30px;
-}
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
 /* ===== LANDING PAGE ===== */
 .landing {
-  background: linear-gradient(135deg, #00b894, #0984e3);
-  color: white;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden;
   text-align: center;
   padding: 20px;
+  background: linear-gradient(135deg, #00b894, #0984e3);
+}
+
+.landing .overlay {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: rgba(255,255,255,0.05);
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+.landing .content {
+  position: relative;
+  z-index: 2;
 }
 
 .landing h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .landing p {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin: 15px 0 30px 0;
+  letter-spacing: 1px;
 }
 
+/* Buttons */
 .lang-buttons {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .lang-buttons .btn {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
   color: white;
   font-size: 1.2rem;
   padding: 15px 30px;
-  transition: all 0.3s ease;
   border: 2px solid white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .lang-buttons .btn:hover {
@@ -104,3 +70,23 @@ img { width: 180px; border-radius: 50%; margin-bottom: 20px; border: 4px solid #
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .landing h1 { font-size: 2.2rem; }
+  .landing p { font-size: 1.2rem; }
+  .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
+}
