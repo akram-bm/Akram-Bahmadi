@@ -91,3 +91,20 @@ body, html {
   .landing p { font-size: 1.2rem; }
   .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
 }
+/* ===== ABOUT ME PROFILE IMAGE ===== */
+.about img {
+  width: 180px;             /* size of the profile picture */
+  height: 180px;            /* keep it square */
+  border-radius: 50%;       /* makes it circular */
+  border: 4px solid #fff;   /* white border */
+  object-fit: cover;        /* crop/scale image nicely */
+  margin-bottom: 20px;      /* spacing from text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.about img:hover {
+  transform: scale(1.1);    /* slight zoom */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);  /* subtle shadow */
+}
+
