@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akram Ko Portfolio - Language</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akram Ko Portfolio - Language</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<section id="language-selection">
-  <h1>Choose Your Language</h1>
-  <button onclick="goToPage('en')">English</button>
-  <button onclick="goToPage('fr')">Français</button>
-  <button onclick="goToPage('es')">Español</button>
+<section class="landing">
+  <h1>Welcome to My Portfolio</h1>
+  <p>Select your language:</p>
+  <div class="lang-buttons">
+    <a href="about.html?lang=en" class="btn">English</a>
+    <a href="about.html?lang=fr" class="btn">Français</a>
+    <a href="about.html?lang=es" class="btn">Español</a>
+  </div>
 </section>
-
-<script>
-  function goToPage(lang){
-    // Save language to sessionStorage for other pages
-    sessionStorage.setItem('lang', lang);
-    window.location.href = 'about.html';
-  }
-</script>
 </body>
 </html>
