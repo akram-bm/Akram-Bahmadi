@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -112,7 +112,7 @@
       font-size: 1.9rem;
     }
 
-    /* Styles Expérience */
+    /* Experience styles */
     .experience-item {
       margin-bottom: 2.5rem;
       padding-bottom: 2rem;
@@ -180,6 +180,13 @@
       line-height: 1;
     }
 
+    .exp-tasks strong {
+      display: block;
+      margin: 1.4rem 0 0.8rem;
+      font-size: 1.18rem;
+      color: white;
+    }
+
     .screenshots-grid {
       margin-top: 1.5rem;
     }
@@ -232,129 +239,140 @@
 <section class="portfolio">
 
   <h1>Portfolio</h1>
-  <p class="intro">Découvrez mon expérience professionnelle, mes projets et mes compétences.</p>
+  <p class="intro">Explore my professional experience, projects, and skills.</p>
 
   <!-- Navigation -->
   <nav class="portfolio-nav">
-    <a href="about-fr.html" class="btn">Accueil</a>
-    <button class="btn active" data-target="accueil">Bienvenue</button>
-    <button class="btn" data-target="experience">Expérience</button>
-    <button class="btn" data-target="projets">Projets</button>
-    <button class="btn" data-target="formation">Formation</button>
-    <button class="btn" data-target="competences">Compétences</button>
+    <a href="about-en.html" class="btn">Home</a>
+    <button class="btn active" data-target="home">Welcome</button>
+    <button class="btn" data-target="experience">Experience</button>
+    <button class="btn" data-target="projects">Projects</button>
+    <button class="btn" data-target="education">Education</button>
+    <button class="btn" data-target="skills">Skills</button>
     <button class="btn" data-target="certifications">Certifications</button>
-    <button class="btn" data-target="langues">Langues</button>
+    <button class="btn" data-target="languages">Languages</button>
   </nav>
 
   <!-- Sections -->
-  <div id="accueil" class="portfolio-content active">
+  <div id="home" class="portfolio-content active">
     <div class="card">
-      <h2>Bienvenue</h2>
-      <p>Bonjour ! Je suis Akram, ingénieur en automatisme et développeur passionné basé à Tanger.</p>
-      <p>Bienvenue sur mon portfolio personnel — n’hésitez pas à explorer mon parcours, mes projets, mes compétences techniques, ma formation, mes certifications et plus encore.</p>
-      <p>Utilisez les onglets ci-dessus pour accéder à une section spécifique.</p>
+      <h2>Welcome</h2>
+      <p>Hello! I'm Akram, a passionate automation engineer and developer based in Tangier.</p>
+      <p>Welcome to my personal portfolio — feel free to explore my journey, projects, technical skills, education, certifications, and more.</p>
+      <p>Use the tabs above to jump to any section.</p>
     </div>
   </div>
 
   <div id="experience" class="portfolio-content">
     <div class="card">
-      <h2>Expérience Professionnelle</h2>
+      <h2>Professional Experience</h2>
 
-      <!-- Expérience 1 -->
+      <!-- EMDEP (unchanged from last version) -->
       <div class="experience-item">
         <div class="exp-header">
-          <img src="images/logos/eia-tech.png" alt="EIA Tech" class="company-logo">
+          <img src="images/logos/emdep.png" alt="EMDEP" class="company-logo">
           <div class="exp-info">
-            <h3>Ingénieur en Automatisme</h3>
-            <div class="exp-duration">Janvier 2023 – Présent</div>
-            <div class="exp-location">Tanger, Maroc – EIA Tech</div>
+            <h3>Internship: Electrical Test Maintenance Technician</h3>
+            <div class="exp-duration">July 04, 2025 – August 06, 2025</div>
+            <div class="exp-location">Tangier, Morocco – EMDEP</div>
           </div>
         </div>
 
         <ul class="exp-tasks">
-          <li>Programmation et mise en service de systèmes PLC (Siemens TIA Portal, Schneider EcoStruxure)</li>
-          <li>Conception et implémentation de supervisions SCADA (Ignition, WinCC)</li>
-          <li>Développement de scripts et interfaces HMI personnalisées</li>
-          <li>Diagnostic et résolution de pannes sur lignes automatisées</li>
-          <li>Participation à l'intégration de robots industriels et vision artificielle</li>
+          <strong>Test et Mise en Service</strong>
+          <li>Électrification et Câblage : Réalisation du câblage complet et de l'électrification des bancs de test</li>
+          <li>Configuration Système : Déclaration et configuration logicielle des cartes électroniques de test pour assurer la communication avec les interfaces de contrôle.</li>
+          <li>Paramétrage sur Mesure : Ajustement technique des contreparties et des modules de contact en fonction du layout spécifique de chaque carte client.</li>
+
+          <strong>Réalisation Technique Spécifique (Projet GTI)</strong>
+          <li>Fabrication Intégrale (Projet GTI) : Conception et montage de A à Z des barres de LED pour le projet GTI.</li>
+          <li>Assemblage Électronique : Soudure, intégration des composants et gestion du circuit électrique des barres de LED.</li>
+          <li>Contrôle Qualité et Performance : Tests de luminosité, de continuité pour assurer la durabilité du produit fini conformément aux standards automobiles.</li>
         </ul>
 
         <div class="screenshots-grid">
-          <h4>Captures d'écran des projets</h4>
+          <h4>Project Screenshots</h4>
           <div class="grid">
-            <a href="images/screenshots/exp1-screen1.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp1-screen1.jpg" alt="Capture 1" loading="lazy">
+            <a href="images/screenshots/emdep-test-bench-1.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/emdep-test-bench-1.jpg" alt="Electrical test bench EMDEP" loading="lazy">
             </a>
-            <a href="images/screenshots/exp1-screen2.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp1-screen2.jpg" alt="Capture 2" loading="lazy">
-            </a>
-            <a href="images/screenshots/exp1-screen3.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp1-screen3.jpg" alt="Capture 3" loading="lazy">
-            </a>
+            <!-- add more if available -->
           </div>
         </div>
       </div>
 
-      <!-- Expérience 2 -->
+      <!-- Expleo – updated tasks -->
       <div class="experience-item">
         <div class="exp-header">
-          <img src="images/logos/bertrandt.png" alt="Bertrandt Morocco" class="company-logo">
+          <img src="images/logos/expleo.png" alt="Expleo" class="company-logo">
           <div class="exp-info">
-            <h3>Stagiaire en Automatisme Industriel</h3>
-            <div class="exp-duration">Juin 2022 – Décembre 2022 (6 mois)</div>
-            <div class="exp-location">Tanger Free Zone – Bertrandt Morocco</div>
+            <h3>Final Year Internship: Automotive Diagnostic Technical Assistant – PCPR Department</h3>
+            <div class="exp-duration">September 16, 2024 – December 27, 2024</div>
+            <div class="exp-location">Tangier, Morocco – Expleo</div>
           </div>
         </div>
 
         <ul class="exp-tasks">
-          <li>Assistance à la programmation de contrôleurs automates</li>
-          <li>Tests et validation de boucles de régulation</li>
-          <li>Rédaction de procédures et documentation technique</li>
-          <li>Support à l'installation de systèmes de vision</li>
+          <strong>Project: Modeling of the Anti-lock Braking System (ABS) using MATLAB</strong>
+
+          <strong>Assistance Technique & Transfert de Compétences (Pôle PCPR)</strong>
+          <li>Analyse et gestion des incidents : Traitement de dossiers techniques via le processus de service d’assistance (tickets), incluant l'analyse des données de défaillance pour identifier les causes racines.</li>
+          <li>Diagnostic moteur approfondi : Réalisation de contrôles techniques sur les moteurs Essence (EB) et Diesel (DV), notamment la mesure des taux de compression et de fuite des cylindres.</li>
+          <li>Utilisation d'outils spécialisés : Manipulation de caméras endoscopiques pour l'inspection interne des composants et exploitation des outils du groupe Stellantis (Items, TSB) pour proposer des solutions de réparation.</li>
+          <li>Expertise en schématique électrique : Analyse de schémas électriques moteurs pour le diagnostic des systèmes d'injection, de démarrage et de dépollution (SCR, FAP).</li>
+
+          <strong>Veille Technologique et Mobilité Électrique</strong>
+          <li>Formation aux véhicules électriques (BEV) : Étude approfondie des modes de charge (Mode 2, 3 et 4) et des infrastructures de recharge (Wallbox, bornes DC).</li>
+          <li>Analyse des chaînes de traction électriques : Compréhension du fonctionnement des batteries haute tension (Lithium-ion), des onduleurs et de la gestion de l'énergie moteur.</li>
         </ul>
 
         <div class="screenshots-grid">
-          <h4>Captures d'écran</h4>
+          <h4>Project Screenshots</h4>
           <div class="grid">
-            <a href="images/screenshots/exp2-screen1.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp2-screen1.jpg" alt="Capture stage 1" loading="lazy">
+            <a href="images/screenshots/expleo-abs-model.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/expleo-abs-model.jpg" alt="ABS MATLAB model" loading="lazy">
             </a>
-            <a href="images/screenshots/exp2-screen2.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp2-screen2.jpg" alt="Capture stage 2" loading="lazy">
-            </a>
+            <!-- add more if available -->
           </div>
         </div>
       </div>
 
-      <!-- Expérience 3 (ajoutée – à personnaliser avec tes vraies infos) -->
+      <!-- Valeo – updated tasks -->
       <div class="experience-item">
         <div class="exp-header">
-          <img src="images/logos/entreprise3.png" alt="Entreprise 3" class="company-logo">
+          <img src="images/logos/valeo.png" alt="Valeo Lighting Systems" class="company-logo">
           <div class="exp-info">
-            <h3>Technicien Automatisme / Stage</h3>
-            <div class="exp-duration">Juillet 2021 – Septembre 2021 (3 mois)</div>
-            <div class="exp-location">Tanger / Tétouan – [Nom de l'entreprise 3]</div>
+            <h3>Introductory Internship: Test Maintenance Technician – Vistronique Department</h3>
+            <div class="exp-duration">January 17, 2023 – April 08, 2023</div>
+            <div class="exp-location">Tangier, Morocco – Valeo Lighting Systems</div>
           </div>
         </div>
 
         <ul class="exp-tasks">
-          <li>Maintenance et dépannage de systèmes automatisés</li>
-          <li>Modification de programmes automates (Schneider, Allen-Bradley)</li>
-          <li>Installation et câblage de capteurs et actionneurs</li>
-          <li>Participation à des audits de sécurité machines</li>
-          <li>Réalisation de schémas électriques et documentation</li>
+          <strong>Maintenance Préventive (SMD - Front End)</strong>
+          <li>Maintenance des machines de production : Réalisation du nettoyage, graissage et vérification des câbles sur les machines clés (Lasering, SPV Panasonic, SPI CyberOptic, Pick & Place, Four Ersa Hotflow, AOI).</li>
+          <li>Optimisation des équipements : Nettoyage spécifique des buses (Nozzles), tables de support et boîtiers de refroidissement.</li>
+          <li>Contrôle qualité thermique : Réalisation d'études de profils thermiques pour garantir l'intégrité du soudage des composants.</li>
+          <li>Suivi technique : Renseignement et suivi rigoureux des check-lists de maintenance préventive.</li>
+
+          <strong>Maintenance Corrective et Analyse (Back End)</strong>
+          <li>Diagnostic ICT (In-Circuit Test) : Analyse et résolution des problèmes de test analogique/numérique sur le projet P2JO_RL (capacitances, résistances, court-circuit).</li>
+          <li>Intervention technique : Remplacement de composants critiques sur les fixtures de test (relais Omron, pins de test par CAD, cartes ICA).</li>
+          <li>Gestion des défauts : Analyse comparative entre "Vrais défauts" et "Faux défauts" en fonction des tolérances et standards composants (TDK, Murata, etc.).</li>
+
+          <strong>Amélioration Continue et Sécurité</strong>
+          <li>Audit de sécurité : Contrôle et mise en place des dispositifs de sécurité (arrêts d’urgence, switchs interlocking) pour la protection des opérateurs.</li>
+          <li>Conception technique (SolidWorks) : Réalisation de modèles 3D pour l'amélioration de l'outillage (Pusher, guide PCB).</li>
+          <li>Qualité : Participation aux audits journaliers (Daily Audit) et suivi des alertes qualité pour la réduction du Scrap (rebuts).</li>
         </ul>
 
         <div class="screenshots-grid">
-          <h4>Captures d'écran</h4>
+          <h4>Screenshots</h4>
           <div class="grid">
-            <a href="images/screenshots/exp3-screen1.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp3-screen1.jpg" alt="Capture expérience 3 - 1" loading="lazy">
+            <a href="images/screenshots/valeo-maintenance.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/valeo-maintenance.jpg" alt="SMD maintenance Valeo" loading="lazy">
             </a>
-            <a href="images/screenshots/exp3-screen2.jpg" target="_blank" class="screenshot-link">
-              <img src="images/screenshots/exp3-screen2.jpg" alt="Capture expérience 3 - 2" loading="lazy">
-            </a>
-            <!-- Ajoute d'autres si tu as plus d'images pour cette expérience -->
+            <!-- add more if available -->
           </div>
         </div>
       </div>
@@ -362,39 +380,38 @@
     </div>
   </div>
 
-  <div id="projets" class="portfolio-content">
+  <div id="projects" class="portfolio-content">
     <div class="card">
-      <h2>Projets</h2>
-      <p>Voici quelques projets sur lesquels j’ai travaillé en automatisme et développement logiciel.</p>
-      <!-- Ajoute ton contenu projets ici plus tard -->
+      <h2>Projects</h2>
+      <p>Here are some projects I worked on in automation and software development.</p>
     </div>
   </div>
 
-  <div id="formation" class="portfolio-content">
+  <div id="education" class="portfolio-content">
     <div class="card">
-      <h2>Formation</h2>
-      <p>Parcours académique, diplômes et formations professionnelles.</p>
+      <h2>Education</h2>
+      <p>Academic background, degrees, and professional training details.</p>
     </div>
   </div>
 
-  <div id="competences" class="portfolio-content">
+  <div id="skills" class="portfolio-content">
     <div class="card">
-      <h2>Compétences</h2>
-      <p>Automatisme, langages de programmation, outils et autres compétences techniques.</p>
+      <h2>Skills</h2>
+      <p>Automation, programming languages, tools, and other technical competencies.</p>
     </div>
   </div>
 
   <div id="certifications" class="portfolio-content">
     <div class="card">
       <h2>Certifications</h2>
-      <p>Certificats professionnels pertinents en automatisme, programmation et domaines connexes.</p>
+      <p>Relevant professional certificates in automation, programming, and related fields.</p>
     </div>
   </div>
 
-  <div id="langues" class="portfolio-content">
+  <div id="languages" class="portfolio-content">
     <div class="card">
-      <h2>Langues</h2>
-      <p>Anglais, Français, Espagnol</p>
+      <h2>Languages</h2>
+      <p>English, French, Spanish</p>
     </div>
   </div>
 
