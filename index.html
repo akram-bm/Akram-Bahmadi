@@ -13,13 +13,13 @@
   <div class="content">
 
     <div class="rotating-text-container">
-      <h1>Select your preferred language</h1>
-      <h1>Sélectionnez votre langue préférée</h1>
-      <h1>Seleccione su idioma preferido</h1>
+      <h1 class="lang">Select your preferred language</h1>
+      <h1 class="lang">Sélectionnez votre langue préférée</h1>
+      <h1 class="lang">Seleccione su idioma preferido</h1>
 
-      <p>for portfolio</p>
-      <p>pour le portfolio</p>
-      <p>para el portafolio</p>
+      <p class="lang">for portfolio</p>
+      <p class="lang">pour le portfolio</p>
+      <p class="lang">para el portafolio</p>
     </div>
 
     <div class="lang-buttons">
@@ -32,27 +32,29 @@
 </section>
 
 <script>
-const headers = document.querySelectorAll('.rotating-text-container h1');
-const paragraphs = document.querySelectorAll('.rotating-text-container p');
-let current = 0;
+const h1s = document.querySelectorAll('.rotating-text-container h1');
+const ps = document.querySelectorAll('.rotating-text-container p');
+
+let index = 0;
+const total = h1s.length;
 
 function showNext() {
-  // Hide all
-  headers.forEach(h => h.style.opacity = 0);
-  paragraphs.forEach(p => p.style.opacity = 0);
+  // hide all first
+  h1s.forEach(h => h.style.opacity = 0);
+  ps.forEach(p => p.style.opacity = 0);
 
-  // Show current
-  headers[current].style.opacity = 1;
-  paragraphs[current].style.opacity = 1;
+  // show only current
+  h1s[index].style.opacity = 1;
+  ps[index].style.opacity = 1;
 
-  // Move to next
-  current = (current + 1) % headers.length;
+  // move to next
+  index = (index + 1) % total;
 }
 
-// Initial display
+// show first immediately
 showNext();
 
-// Change every 1 second
+// loop every 1s
 setInterval(showNext, 1000);
 </script>
 
