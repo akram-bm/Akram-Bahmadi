@@ -224,6 +224,27 @@
       object-fit: cover;
     }
 
+    /* Download report button */
+    .download-btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .download-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
+    }
+
     @media (max-width: 640px) {
       .portfolio-nav { padding: 0.5rem; gap: 0.6rem; }
       .btn { padding: 0.65rem 1.1rem; font-size: 0.92rem; }
@@ -267,7 +288,7 @@
     <div class="card">
       <h2>Professional Experience</h2>
 
-      <!-- EMDEP (unchanged from last version) -->
+      <!-- EMDEP -->
       <div class="experience-item">
         <div class="exp-header">
           <img src="images/logos/emdep.png" alt="EMDEP" class="company-logo">
@@ -301,7 +322,7 @@
         </div>
       </div>
 
-      <!-- Expleo – updated tasks -->
+      <!-- Expleo – updated + download button -->
       <div class="experience-item">
         <div class="exp-header">
           <img src="images/logos/expleo.png" alt="Expleo" class="company-logo">
@@ -326,6 +347,8 @@
           <li>Analyse des chaînes de traction électriques : Compréhension du fonctionnement des batteries haute tension (Lithium-ion), des onduleurs et de la gestion de l'énergie moteur.</li>
         </ul>
 
+        <a href="reports/expleo-internship-report.pdf" class="download-btn" download>Download Internship Report (PDF)</a>
+
         <div class="screenshots-grid">
           <h4>Project Screenshots</h4>
           <div class="grid">
@@ -337,7 +360,7 @@
         </div>
       </div>
 
-      <!-- Valeo – updated tasks -->
+      <!-- Valeo – updated + download button -->
       <div class="experience-item">
         <div class="exp-header">
           <img src="images/logos/valeo.png" alt="Valeo Lighting Systems" class="company-logo">
@@ -365,6 +388,8 @@
           <li>Conception technique (SolidWorks) : Réalisation de modèles 3D pour l'amélioration de l'outillage (Pusher, guide PCB).</li>
           <li>Qualité : Participation aux audits journaliers (Daily Audit) et suivi des alertes qualité pour la réduction du Scrap (rebuts).</li>
         </ul>
+
+        <a href="reports/valeo-internship-report.pdf" class="download-btn" download>Download Internship Report (PDF)</a>
 
         <div class="screenshots-grid">
           <h4>Screenshots</h4>
