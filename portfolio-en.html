@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BAHMADI Akram - Portfolio</title>
 
-  <!-- Favicon (logo dans l'onglet du navigateur) -->
-  <link rel="icon" href="images/logo1.png" type="image/png">
+  <!-- Favicon (logo in browser tab) -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/png">
 
   <style>
     :root {
@@ -131,19 +132,19 @@
       font-size: 1.9rem;
     }
 
-    /* Experience styles */
-    .experience-item {
+    /* Shared styles for Experience & Projects */
+    .experience-item, .project-item {
       margin-bottom: 2.8rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .experience-item:last-child {
+    .experience-item:last-child, .project-item:last-child {
       border-bottom: none;
       margin-bottom: 0;
     }
 
-    .exp-header {
+    .exp-header, .project-header {
       display: flex;
       align-items: center;
       gap: 1.4rem;
@@ -151,7 +152,7 @@
       flex-wrap: wrap;
     }
 
-    .company-logo {
+    .company-logo, .project-logo {
       width: 80px;
       height: 80px;
       object-fit: contain;
@@ -161,36 +162,36 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .exp-info h3 {
+    .exp-info h3, .project-info h3 {
       font-size: 1.45rem;
       margin-bottom: 0.4rem;
       color: white;
     }
 
-    .exp-duration {
+    .exp-duration, .project-duration {
       font-size: 0.98rem;
       color: var(--text-light);
       font-weight: 500;
     }
 
-    .exp-location {
+    .exp-location, .project-context {
       font-size: 0.98rem;
       color: var(--primary);
     }
 
-    .exp-tasks {
+    .exp-tasks, .project-tasks {
       list-style: none;
       margin: 1.4rem 0;
       padding-left: 1.6rem;
     }
 
-    .exp-tasks li {
+    .exp-tasks li, .project-tasks li {
       margin-bottom: 0.8rem;
       position: relative;
       padding-left: 1.6rem;
     }
 
-    .exp-tasks li::before {
+    .exp-tasks li::before, .project-tasks li::before {
       content: "•";
       color: var(--primary);
       position: absolute;
@@ -199,7 +200,7 @@
       line-height: 1;
     }
 
-    .exp-tasks strong {
+    .exp-tasks strong, .project-tasks strong {
       display: block;
       margin: 1.6rem 0 0.9rem;
       font-size: 1.22rem;
@@ -269,8 +270,8 @@
       .btn, .download-btn { padding: 0.65rem 1.3rem; font-size: 0.93rem; }
       h1 { font-size: 2.4rem; }
       .portfolio-content { padding: 1.8rem; }
-      .exp-header { flex-direction: column; align-items: flex-start; text-align: center; }
-      .company-logo { margin: 0 auto; }
+      .exp-header, .project-header { flex-direction: column; align-items: flex-start; text-align: center; }
+      .company-logo, .project-logo { margin: 0 auto; }
     }
   </style>
 </head>
@@ -447,41 +448,41 @@
         <div class="screenshots-grid">
           <h4>Screenshots</h4>
           <div class="grid">
-            <a href="screenshots/valeo/1.jpg" class="screenshot-link" data-full="images/screenshots/valeo/1.jpg">
-              <img src="screenshots/valeo/1.jpg" alt="Screenshot 1 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/1.jpg" class="screenshot-link" data-full="images/screenshots/valeo/1.jpg">
+              <img src="images/screenshots/valeo/1.jpg" alt="Screenshot 1 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/2.jpg" class="screenshot-link" data-full="images/screenshots/valeo/2.jpg">
-              <img src="screenshots/valeo/2.jpg" alt="Screenshot 2 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/2.jpg" class="screenshot-link" data-full="images/screenshots/valeo/2.jpg">
+              <img src="images/screenshots/valeo/2.jpg" alt="Screenshot 2 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/3.jpg" class="screenshot-link" data-full="images/screenshots/valeo/3.jpg">
-              <img src="screenshots/valeo/3.jpg" alt="Screenshot 3 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/3.jpg" class="screenshot-link" data-full="images/screenshots/valeo/3.jpg">
+              <img src="images/screenshots/valeo/3.jpg" alt="Screenshot 3 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/4.jpg" class="screenshot-link" data-full="images/screenshots/valeo/4.jpg">
-              <img src="screenshots/valeo/4.jpg" alt="Screenshot 4 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/4.jpg" class="screenshot-link" data-full="images/screenshots/valeo/4.jpg">
+              <img src="images/screenshots/valeo/4.jpg" alt="Screenshot 4 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/5.jpg" class="screenshot-link" data-full="images/screenshots/valeo/5.jpg">
-              <img src="screenshots/valeo/5.jpg" alt="Screenshot 5 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/5.jpg" class="screenshot-link" data-full="images/screenshots/valeo/5.jpg">
+              <img src="images/screenshots/valeo/5.jpg" alt="Screenshot 5 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/6.jpg" class="screenshot-link" data-full="images/screenshots/valeo/6.jpg">
-              <img src="screenshots/valeo/6.jpg" alt="Screenshot 6 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/6.jpg" class="screenshot-link" data-full="images/screenshots/valeo/6.jpg">
+              <img src="images/screenshots/valeo/6.jpg" alt="Screenshot 6 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/7.jpg" class="screenshot-link" data-full="images/screenshots/valeo/7.jpg">
-              <img src="screenshots/valeo/7.jpg" alt="Screenshot 7 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/7.jpg" class="screenshot-link" data-full="images/screenshots/valeo/7.jpg">
+              <img src="images/screenshots/valeo/7.jpg" alt="Screenshot 7 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/8.jpg" class="screenshot-link" data-full="images/screenshots/valeo/8.jpg">
-              <img src="screenshots/valeo/8.jpg" alt="Screenshot 8 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/8.jpg" class="screenshot-link" data-full="images/screenshots/valeo/8.jpg">
+              <img src="images/screenshots/valeo/8.jpg" alt="Screenshot 8 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/9.jpg" class="screenshot-link" data-full="images/screenshots/valeo/9.jpg">
-              <img src="screenshots/valeo/9.jpg" alt="Screenshot 9 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/9.jpg" class="screenshot-link" data-full="images/screenshots/valeo/9.jpg">
+              <img src="images/screenshots/valeo/9.jpg" alt="Screenshot 9 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/10.jpg" class="screenshot-link" data-full="images/screenshots/valeo/10.jpg">
-              <img src="screenshots/valeo/10.jpg" alt="Screenshot 10 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/10.jpg" class="screenshot-link" data-full="images/screenshots/valeo/10.jpg">
+              <img src="images/screenshots/valeo/10.jpg" alt="Screenshot 10 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/11.jpg" class="screenshot-link" data-full="images/screenshots/valeo/11.jpg">
-              <img src="screenshots/valeo/11.jpg" alt="Screenshot 11 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/11.jpg" class="screenshot-link" data-full="images/screenshots/valeo/11.jpg">
+              <img src="images/screenshots/valeo/11.jpg" alt="Screenshot 11 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/12.jpg" class="screenshot-link" data-full="images/screenshots/valeo/12.jpg">
-              <img src="screenshots/valeo/12.jpg" alt="Screenshot 12 – Valeo" loading="lazy">
+            <a href="images/screenshots/valeo/12.jpg" class="screenshot-link" data-full="images/screenshots/valeo/12.jpg">
+              <img src="images/screenshots/valeo/12.jpg" alt="Screenshot 12 – Valeo" loading="lazy">
             </a>
           </div>
         </div>
@@ -490,13 +491,148 @@
     </div>
   </div>
 
+  <!-- PROJECTS SECTION – Redesigned like Experience -->
   <div id="projects" class="portfolio-content">
     <div class="card">
       <h2>Projects</h2>
-      <p>Selection of projects completed in automation, embedded systems, and software development.</p>
+
+      <!-- Project 1 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/project-logo-1.png" alt="Project 1 Logo" class="project-logo">
+          <div class="project-info">
+            <h3>ABS Braking System Modeling & Simulation</h3>
+            <div class="project-duration">September 2024 – December 2024</div>
+            <div class="project-context">Expleo – Final Year Internship Project</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Objective</strong>
+          <li>Develop a full dynamic model of an Anti-lock Braking System using MATLAB/Simulink</li>
+          <li>Simulate emergency braking scenarios on different road surfaces</li>
+
+          <strong>Technical Implementation</strong>
+          <li>Integration of tire model (Magic Formula) and vehicle dynamics</li>
+          <li>Design and tuning of PID and fuzzy logic controllers</li>
+          <li>Performance comparison (stopping distance, response time)</li>
+
+          <strong>Results</strong>
+          <li>Achieved 18% reduction in simulated stopping distance</li>
+          <li>Comprehensive technical report and final presentation</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Project Screenshots</h4>
+          <div class="grid">
+            <a href="screenshots/project1/1.jpg" class="screenshot-link" data-full="screenshots/project1/1.jpg">
+              <img src="screenshots/project1/1.jpg" alt="Simulink ABS model" loading="lazy">
+            </a>
+            <a href="screenshots/project1/2.jpg" class="screenshot-link" data-full="screenshots/project1/2.jpg">
+              <img src="screenshots/project1/2.jpg" alt="Braking simulation results" loading="lazy">
+            </a>
+            <a href="screenshots/project1/3.jpg" class="screenshot-link" data-full="screenshots/project1/3.jpg">
+              <img src="screenshots/project1/3.jpg" alt="Performance graphs" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-projet-abs.pdf" class="download-btn" download>Download Project Report (PDF)</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/project-logo-2.png" alt="Project 2 Logo" class="project-logo">
+          <div class="project-info">
+            <h3>Industrial Production Line Automation</h3>
+            <div class="project-duration">January 2025 – June 2025</div>
+            <div class="project-context">Academic / Internship Project</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Design & Programming</strong>
+          <li>PLC programming with Siemens TIA Portal (S7-1200)</li>
+          <li>HMI development using WinCC Unified</li>
+
+          <strong>Implementation</strong>
+          <li>Integration of sensors, actuators, and variable frequency drives</li>
+          <li>Communication via Modbus TCP / Profinet</li>
+
+          <strong>Testing & Optimization</strong>
+          <li>Fault diagnosis and cycle time optimization</li>
+          <li>Technical documentation and operator training</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Project Screenshots</h4>
+          <div class="grid">
+            <a href="screenshots/project2/1.jpg" class="screenshot-link" data-full="screenshots/project2/1.jpg">
+              <img src="screenshots/project2/1.jpg" alt="Electrical schematic" loading="lazy">
+            </a>
+            <a href="screenshots/project2/2.jpg" class="screenshot-link" data-full="screenshots/project2/2.jpg">
+              <img src="screenshots/project2/2.jpg" alt="SCADA interface" loading="lazy">
+            </a>
+            <a href="screenshots/project2/3.jpg" class="screenshot-link" data-full="screenshots/project2/3.jpg">
+              <img src="screenshots/project2/3.jpg" alt="PLC ladder logic" loading="lazy">
+            </a>
+            <a href="screenshots/project2/4.jpg" class="screenshot-link" data-full="screenshots/project2/4.jpg">
+              <img src="screenshots/project2/4.jpg" alt="Real production line" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-projet-automatisation.pdf" class="download-btn" download>Download Project Report (PDF)</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/project-logo-3.png" alt="Project 3 Logo" class="project-logo">
+          <div class="project-info">
+            <h3>IoT Supervisory Application Development</h3>
+            <div class="project-duration">March 2025 – July 2025</div>
+            <div class="project-context">Personal / Freelance Project</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Backend & Frontend</strong>
+          <li>Node.js + Express + MongoDB backend</li>
+          <li>React + Tailwind CSS frontend</li>
+
+          <strong>Communication Layer</strong>
+          <li>MQTT integration with ESP32 / Raspberry Pi</li>
+          <li>Real-time dashboard using Chart.js</li>
+
+          <strong>Key Features</strong>
+          <li>Email/SMS alerts on threshold exceedance</li>
+          <li>Data history with CSV/PDF export</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Project Screenshots</h4>
+          <div class="grid">
+            <a href="screenshots/project3/1.jpg" class="screenshot-link" data-full="screenshots/project3/1.jpg">
+              <img src="screenshots/project3/1.jpg" alt="IoT dashboard" loading="lazy">
+            </a>
+            <a href="screenshots/project3/2.jpg" class="screenshot-link" data-full="screenshots/project3/2.jpg">
+              <img src="screenshots/project3/2.jpg" alt="Real-time charts" loading="lazy">
+            </a>
+            <a href="screenshots/project3/3.jpg" class="screenshot-link" data-full="screenshots/project3/3.jpg">
+              <img src="screenshots/project3/3.jpg" alt="MQTT configuration" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-projet-iot.pdf" class="download-btn" download>Download Project Report (PDF)</a>
+      </div>
+
     </div>
   </div>
 
+  <!-- The other sections remain completely unchanged -->
   <div id="education" class="portfolio-content">
     <div class="card">
       <h2>Education</h2>
