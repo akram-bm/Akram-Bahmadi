@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -112,11 +112,118 @@
       font-size: 1.9rem;
     }
 
+    /* Styles Expérience */
+    .experience-item {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .company-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .exp-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: white;
+    }
+
+    .exp-duration {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .exp-location {
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .exp-tasks {
+      list-style: none;
+      margin: 1.2rem 0;
+      padding-left: 1.4rem;
+    }
+
+    .exp-tasks li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-left: 1.4rem;
+    }
+
+    .exp-tasks li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .screenshots-grid {
+      margin-top: 1.5rem;
+    }
+
+    .screenshots-grid h4 {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .screenshot-link {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: zoom-in;
+    }
+
+    .screenshot-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+    }
+
+    .screenshot-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
     @media (max-width: 640px) {
       .portfolio-nav { padding: 0.5rem; gap: 0.6rem; }
       .btn { padding: 0.65rem 1.1rem; font-size: 0.92rem; }
       h1 { font-size: 2.3rem; }
       .portfolio-content { padding: 1.6rem; }
+      .exp-header { flex-direction: column; align-items: flex-start; text-align: center; }
+      .company-logo { margin: 0 auto; }
     }
   </style>
 </head>
@@ -125,72 +232,169 @@
 <section class="portfolio">
 
   <h1>Portfolio</h1>
-  <p class="intro">Explore my professional experience, projects, and skills.</p>
+  <p class="intro">Découvrez mon expérience professionnelle, mes projets et mes compétences.</p>
 
   <!-- Navigation -->
   <nav class="portfolio-nav">
-    <a href="about-en.html" class="btn">Home</a>
-    <button class="btn active" data-target="home">Welcome</button>
-    <button class="btn" data-target="experience">Experience</button>
-    <button class="btn" data-target="projects">Projects</button>
-    <button class="btn" data-target="education">Education</button>
-    <button class="btn" data-target="skills">Skills</button>
+    <a href="about-fr.html" class="btn">Accueil</a>
+    <button class="btn active" data-target="accueil">Bienvenue</button>
+    <button class="btn" data-target="experience">Expérience</button>
+    <button class="btn" data-target="projets">Projets</button>
+    <button class="btn" data-target="formation">Formation</button>
+    <button class="btn" data-target="competences">Compétences</button>
     <button class="btn" data-target="certifications">Certifications</button>
-    <button class="btn" data-target="languages">Languages</button>
+    <button class="btn" data-target="langues">Langues</button>
   </nav>
 
   <!-- Sections -->
-  <div id="home" class="portfolio-content active">
+  <div id="accueil" class="portfolio-content active">
     <div class="card">
-      <h2>Welcome</h2>
-      <p>Hello! I'm Akram, a passionate automation engineer and developer based in Tangier.</p>
-      <p>Welcome to my personal portfolio — feel free to explore my journey, projects, technical skills, education, certifications, and more.</p>
-      <p>Use the tabs above to jump to any section.</p>
+      <h2>Bienvenue</h2>
+      <p>Bonjour ! Je suis Akram, ingénieur en automatisme et développeur passionné basé à Tanger.</p>
+      <p>Bienvenue sur mon portfolio personnel — n’hésitez pas à explorer mon parcours, mes projets, mes compétences techniques, ma formation, mes certifications et plus encore.</p>
+      <p>Utilisez les onglets ci-dessus pour accéder à une section spécifique.</p>
     </div>
   </div>
 
   <div id="experience" class="portfolio-content">
     <div class="card">
-      <h2>Experience</h2>
-      <p>Details about my internships, work experience, and technical roles.</p>
-      <!-- Add your real experience entries here -->
+      <h2>Expérience Professionnelle</h2>
+
+      <!-- Expérience 1 -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/logos/eia-tech.png" alt="EIA Tech" class="company-logo">
+          <div class="exp-info">
+            <h3>Ingénieur en Automatisme</h3>
+            <div class="exp-duration">Janvier 2023 – Présent</div>
+            <div class="exp-location">Tanger, Maroc – EIA Tech</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <li>Programmation et mise en service de systèmes PLC (Siemens TIA Portal, Schneider EcoStruxure)</li>
+          <li>Conception et implémentation de supervisions SCADA (Ignition, WinCC)</li>
+          <li>Développement de scripts et interfaces HMI personnalisées</li>
+          <li>Diagnostic et résolution de pannes sur lignes automatisées</li>
+          <li>Participation à l'intégration de robots industriels et vision artificielle</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Captures d'écran des projets</h4>
+          <div class="grid">
+            <a href="images/screenshots/exp1-screen1.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp1-screen1.jpg" alt="Capture 1" loading="lazy">
+            </a>
+            <a href="images/screenshots/exp1-screen2.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp1-screen2.jpg" alt="Capture 2" loading="lazy">
+            </a>
+            <a href="images/screenshots/exp1-screen3.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp1-screen3.jpg" alt="Capture 3" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expérience 2 -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/logos/bertrandt.png" alt="Bertrandt Morocco" class="company-logo">
+          <div class="exp-info">
+            <h3>Stagiaire en Automatisme Industriel</h3>
+            <div class="exp-duration">Juin 2022 – Décembre 2022 (6 mois)</div>
+            <div class="exp-location">Tanger Free Zone – Bertrandt Morocco</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <li>Assistance à la programmation de contrôleurs automates</li>
+          <li>Tests et validation de boucles de régulation</li>
+          <li>Rédaction de procédures et documentation technique</li>
+          <li>Support à l'installation de systèmes de vision</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Captures d'écran</h4>
+          <div class="grid">
+            <a href="images/screenshots/exp2-screen1.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp2-screen1.jpg" alt="Capture stage 1" loading="lazy">
+            </a>
+            <a href="images/screenshots/exp2-screen2.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp2-screen2.jpg" alt="Capture stage 2" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expérience 3 (ajoutée – à personnaliser avec tes vraies infos) -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/logos/entreprise3.png" alt="Entreprise 3" class="company-logo">
+          <div class="exp-info">
+            <h3>Technicien Automatisme / Stage</h3>
+            <div class="exp-duration">Juillet 2021 – Septembre 2021 (3 mois)</div>
+            <div class="exp-location">Tanger / Tétouan – [Nom de l'entreprise 3]</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <li>Maintenance et dépannage de systèmes automatisés</li>
+          <li>Modification de programmes automates (Schneider, Allen-Bradley)</li>
+          <li>Installation et câblage de capteurs et actionneurs</li>
+          <li>Participation à des audits de sécurité machines</li>
+          <li>Réalisation de schémas électriques et documentation</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Captures d'écran</h4>
+          <div class="grid">
+            <a href="images/screenshots/exp3-screen1.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp3-screen1.jpg" alt="Capture expérience 3 - 1" loading="lazy">
+            </a>
+            <a href="images/screenshots/exp3-screen2.jpg" target="_blank" class="screenshot-link">
+              <img src="images/screenshots/exp3-screen2.jpg" alt="Capture expérience 3 - 2" loading="lazy">
+            </a>
+            <!-- Ajoute d'autres si tu as plus d'images pour cette expérience -->
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div id="projects" class="portfolio-content">
+  <div id="projets" class="portfolio-content">
     <div class="card">
-      <h2>Projects</h2>
-      <p>Here are some projects I worked on in automation and software development.</p>
-      <!-- Add project cards, screenshots, GitHub links... -->
+      <h2>Projets</h2>
+      <p>Voici quelques projets sur lesquels j’ai travaillé en automatisme et développement logiciel.</p>
+      <!-- Ajoute ton contenu projets ici plus tard -->
     </div>
   </div>
 
-  <div id="education" class="portfolio-content">
+  <div id="formation" class="portfolio-content">
     <div class="card">
-      <h2>Education</h2>
-      <p>Academic background, degrees, and professional training details.</p>
-      <!-- Add your education history here -->
+      <h2>Formation</h2>
+      <p>Parcours académique, diplômes et formations professionnelles.</p>
     </div>
   </div>
 
-  <div id="skills" class="portfolio-content">
+  <div id="competences" class="portfolio-content">
     <div class="card">
-      <h2>Skills</h2>
-      <p>Automation, programming languages, tools, and other technical competencies.</p>
+      <h2>Compétences</h2>
+      <p>Automatisme, langages de programmation, outils et autres compétences techniques.</p>
     </div>
   </div>
 
   <div id="certifications" class="portfolio-content">
     <div class="card">
       <h2>Certifications</h2>
-      <p>Relevant professional certificates in automation, programming, and related fields.</p>
+      <p>Certificats professionnels pertinents en automatisme, programmation et domaines connexes.</p>
     </div>
   </div>
 
-  <div id="languages" class="portfolio-content">
+  <div id="langues" class="portfolio-content">
     <div class="card">
-      <h2>Languages</h2>
-      <p>English, French, Spanish</p>
+      <h2>Langues</h2>
+      <p>Anglais, Français, Espagnol</p>
     </div>
   </div>
 
