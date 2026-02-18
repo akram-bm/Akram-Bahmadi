@@ -33,6 +33,35 @@ body, html {
   z-index: 2;
 }
 
+/* ===== ROTATING LANGUAGE TEXT ===== */
+.rotating-text-container {
+  position: relative;
+  height: 4rem; /* adjust for h1+p combined height */
+  overflow: hidden;
+}
+
+.rotating-text-container h1,
+.rotating-text-container p {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  animation: fadeRotate 3s linear infinite;
+}
+
+/* Stagger each language */
+.lang-en { animation-delay: 0s; }
+.lang-fr { animation-delay: 1s; }
+.lang-es { animation-delay: 2s; }
+
+/* Smooth fade in/out with slide */
+@keyframes fadeRotate {
+  0%   { opacity: 0; transform: translateY(20px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  33%  { opacity: 1; transform: translateY(0); }
+  43%  { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
 /* ===== TEXT ===== */
 .landing h1 {
   font-size: 3rem;
@@ -79,45 +108,12 @@ body, html {
   animation: fadeInUp 1s forwards;
 }
 
-.delay-1 { animation-delay: 0s; }
-.delay-2 { animation-delay: 3s; }
-.delay-3 { animation-delay: 6s; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
 
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== ROTATING LANGUAGE TEXT ===== */
-.rotating-text-container {
-  position: relative;
-  height: 4rem; /* adjust to fit your h1+p combined height */
-  overflow: hidden;
-}
-
-.rotating-text-container h1,
-.rotating-text-container p {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  animation: fadeInOut 3s linear infinite;
-}
-
-/* Stagger each language to appear one at a time */
-.lang-en { animation-delay: 0s; }
-.lang-fr { animation-delay: 1s; }
-.lang-es { animation-delay: 2s; }
-
-/* Fade in, stay, fade out animation */
-@keyframes fadeInOut {
-  0%, 33.333%   { opacity: 1; transform: translateY(0); }  /* visible */
-  33.334%, 100% { opacity: 0; transform: translateY(-20px); } /* fade out */
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .landing h1 { font-size: 2.2rem; }
-  .landing p { font-size: 1.2rem; }
-  .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
 }
 
 /* ===== ABOUT ME PAGE ===== */
@@ -211,4 +207,13 @@ body, html {
 
 .contact a:hover {
   text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .landing h1 { font-size: 2.2rem; }
+  .landing p { font-size: 1.2rem; }
+  .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
+  .portfolio-nav .btn { font-size: 0.9rem; padding: 8px 15px; }
+  .card { padding: 15px; }
 }
