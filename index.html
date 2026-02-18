@@ -17,10 +17,12 @@
         <h1>Select your preferred language</h1>
         <p>for portfolio</p>
       </div>
+
       <div class="text-group">
         <h1>Sélectionnez votre langue préférée</h1>
         <p>pour le portfolio</p>
       </div>
+
       <div class="text-group">
         <h1>Seleccione su idioma preferido</h1>
         <p>para el portafolio</p>
@@ -47,11 +49,10 @@
     index = (index + 1) % total;
   }
 
-  // Show first one immediately
+  // Start immediately
   showNext();
-
-  // Change every ~2.2 seconds (feels natural)
-  setInterval(showNext, 2200);
+  // Change every 2.5 seconds (you can change to 2000 or 3000)
+  setInterval(showNext, 2500);
 </script>
 
 </body>

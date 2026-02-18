@@ -36,21 +36,24 @@ body, html {
 /* ===== ROTATING LANGUAGE TEXT ===== */
 .rotating-text-container {
   position: relative;
-  height: 7rem;           /* increased a bit to comfortably fit h1 + p */
-  margin-bottom: 2.5rem;
+  width: 100%;
+  min-height: 9rem;          /* ← increased → enough space for longest text */
+  height: 9rem;
+  margin: 1.5rem 0 3rem 0;   /* more breathing room */
   overflow: hidden;
 }
 
 .text-group {
   position: absolute;
-  inset: 0;               /* top:0 right:0 bottom:0 left:0 */
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;               /* ← space between h1 and p */
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s ease;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
   pointer-events: none;
 }
 
@@ -60,16 +63,34 @@ body, html {
 }
 
 .rotating-text-container h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;         /* slightly smaller if still clipping on mobile */
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 .rotating-text-container p {
-  font-size: 1.5rem;
-  margin: 12px 0 0 0;
-  opacity: 0.9;
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  margin: 0;
+  line-height: 1.3;
+  opacity: 0.92;
+  letter-spacing: 0.8px;
+}
+
+/* Make sure text doesn't overflow on smaller screens */
+@media (max-width: 768px) {
+  .rotating-text-container {
+    min-height: 10rem;
+    height: 10rem;
+  }
+
+  .rotating-text-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .rotating-text-container p {
+    font-size: 1.3rem;
+  }
 }
 
 /* ===== BUTTONS ===== */
