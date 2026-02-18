@@ -12,7 +12,7 @@ body, html {
 .landing {
   position: relative;
   display: grid;
-  place-items: center;
+  place-items: center; /* perfect vertical + horizontal centering */
   min-height: 100vh;
   text-align: center;
   overflow: hidden;
@@ -33,64 +33,16 @@ body, html {
   z-index: 2;
 }
 
-/* ===== ROTATING LANGUAGE TEXT ===== */
-.rotating-text-container {
-  position: relative;
-  width: 100%;
-  min-height: 9rem;          /* ← increased → enough space for longest text */
-  height: 9rem;
-  margin: 1.5rem 0 3rem 0;   /* more breathing room */
-  overflow: hidden;
-}
-
-.text-group {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;               /* ← space between h1 and p */
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-  pointer-events: none;
-}
-
-.text-group.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.rotating-text-container h1 {
-  font-size: 2.8rem;         /* slightly smaller if still clipping on mobile */
+/* ===== TEXT ===== */
+.landing h1 {
+  font-size: 3rem;
   margin: 0;
-  line-height: 1.15;
-  font-weight: 700;
 }
 
-.rotating-text-container p {
-  font-size: 1.6rem;
-  margin: 0;
-  line-height: 1.3;
-  opacity: 0.92;
-  letter-spacing: 0.8px;
-}
-
-/* Make sure text doesn't overflow on smaller screens */
-@media (max-width: 768px) {
-  .rotating-text-container {
-    min-height: 10rem;
-    height: 10rem;
-  }
-
-  .rotating-text-container h1 {
-    font-size: 2.2rem;
-  }
-
-  .rotating-text-container p {
-    font-size: 1.3rem;
-  }
+.landing p {
+  font-size: 1.5rem;
+  margin: 15px 0 30px 0;
+  letter-spacing: 1px;
 }
 
 /* ===== BUTTONS ===== */
@@ -120,7 +72,21 @@ body, html {
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
-/* Keep the rest of your CSS (about, portfolio, contact, responsive) unchanged */
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== ABOUT ME PAGE ===== */
 .about {
   display: grid;
@@ -150,6 +116,7 @@ body, html {
 .about h2 { font-size: 1.8rem; margin: 5px 0; }
 .about p { font-size: 1.2rem; margin: 15px 0 30px 0; line-height: 1.5; letter-spacing: 0.5px; }
 
+/* Buttons on About Me page inherit styles */
 .about .lang-buttons {
   justify-content: center;
   flex-wrap: wrap;
@@ -216,8 +183,8 @@ body, html {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .landing h1 { font-size: 2.2rem; }
-  .landing p { font-size: 1.2rem; }
+  .landing h1, .about h1 { font-size: 2.2rem; }
+  .landing p, .about p { font-size: 1.2rem; }
   .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
   .portfolio-nav .btn { font-size: 0.9rem; padding: 8px 15px; }
   .card { padding: 15px; }
