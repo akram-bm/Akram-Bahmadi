@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akram BAHMADI - Portfolio</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akram BAHMADI - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -13,13 +13,18 @@
   <div class="content">
 
     <div class="rotating-text-container">
-      <h1 class="lang">Select your preferred language</h1>
-      <h1 class="lang">Sélectionnez votre langue préférée</h1>
-      <h1 class="lang">Seleccione su idioma preferido</h1>
-
-      <p class="lang">for portfolio</p>
-      <p class="lang">pour le portfolio</p>
-      <p class="lang">para el portafolio</p>
+      <div class="text-group">
+        <h1>Select your preferred language</h1>
+        <p>for portfolio</p>
+      </div>
+      <div class="text-group">
+        <h1>Sélectionnez votre langue préférée</h1>
+        <p>pour le portfolio</p>
+      </div>
+      <div class="text-group">
+        <h1>Seleccione su idioma preferido</h1>
+        <p>para el portafolio</p>
+      </div>
     </div>
 
     <div class="lang-buttons">
@@ -32,30 +37,21 @@
 </section>
 
 <script>
-const h1s = document.querySelectorAll('.rotating-text-container h1');
-const ps = document.querySelectorAll('.rotating-text-container p');
+  const groups = document.querySelectorAll('.rotating-text-container .text-group');
+  let index = 0;
+  const total = groups.length;
 
-let index = 0;
-const total = h1s.length;
+  function showNext() {
+    groups.forEach(group => group.classList.remove('active'));
+    groups[index].classList.add('active');
+    index = (index + 1) % total;
+  }
 
-function showNext() {
-  // hide all first
-  h1s.forEach(h => h.style.opacity = 0);
-  ps.forEach(p => p.style.opacity = 0);
+  // Show first one immediately
+  showNext();
 
-  // show only current
-  h1s[index].style.opacity = 1;
-  ps[index].style.opacity = 1;
-
-  // move to next
-  index = (index + 1) % total;
-}
-
-// show first immediately
-showNext();
-
-// loop every 1s
-setInterval(showNext, 1000);
+  // Change every ~2.2 seconds (feels natural)
+  setInterval(showNext, 2200);
 </script>
 
 </body>

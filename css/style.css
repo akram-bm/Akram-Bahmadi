@@ -36,27 +36,39 @@ body, html {
 /* ===== ROTATING LANGUAGE TEXT ===== */
 .rotating-text-container {
   position: relative;
-  height: 4rem; /* adjust to fit your h1+p height */
+  height: 7rem;           /* increased a bit to comfortably fit h1 + p */
+  margin-bottom: 2.5rem;
   overflow: hidden;
 }
 
-.rotating-text-container h1,
-.rotating-text-container p {
+.text-group {
   position: absolute;
-  width: 100%;
+  inset: 0;               /* top:0 right:0 bottom:0 left:0 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 0.5s ease; /* smooth fade */
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+  pointer-events: none;
 }
 
-/* ===== TEXT ===== */
-.landing h1 {
+.text-group.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotating-text-container h1 {
   font-size: 3rem;
   margin: 0;
+  line-height: 1.1;
 }
 
-.landing p {
+.rotating-text-container p {
   font-size: 1.5rem;
-  margin: 15px 0 30px 0;
+  margin: 12px 0 0 0;
+  opacity: 0.9;
   letter-spacing: 1px;
 }
 
@@ -87,6 +99,7 @@ body, html {
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
+/* Keep the rest of your CSS (about, portfolio, contact, responsive) unchanged */
 /* ===== ABOUT ME PAGE ===== */
 .about {
   display: grid;
