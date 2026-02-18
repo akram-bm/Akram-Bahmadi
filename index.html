@@ -5,46 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akram BAHMADI - Portfolio</title>
 <link rel="stylesheet" href="css/style.css">
-<style>
-  .rotating-text {
-    display: inline-block;
-    position: relative;
-    height: 1.2em; /* adjust based on your font size */
-    overflow: hidden;
-  }
-
-  .rotating-text span {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    animation: rotate 3s linear infinite; /* 3s for 3 languages, 1s each */
-  }
-
-  .rotating-text span:nth-child(1) { animation-delay: 0s; }
-  .rotating-text span:nth-child(2) { animation-delay: 1s; }
-  .rotating-text span:nth-child(3) { animation-delay: 2s; }
-
-  @keyframes rotate {
-    0%, 33.333% { opacity: 1; transform: translateY(0); }
-    33.334%, 100% { opacity: 0; transform: translateY(-100%); }
-  }
-</style>
 </head>
 <body>
 
 <section class="landing">
   <div class="overlay"></div>
   <div class="content">
-    <h1 class="fade-in rotating-text">
-      <span>Select your preferred language</span>
-      <span>Sélectionnez votre langue préférée</span>
-      <span>Seleccione su idioma preferido</span>
-    </h1>
-    <p class="fade-in delay-1 rotating-text">
-      <span>for portfolio</span>
-      <span>pour le portfolio</span>
-      <span>para el portafolio</span>
-    </p>
+    <h1 class="fade-in">Select your preferred language</h1>
+    <p class="fade-in delay-1">for portfolio</p>
+    <h1 class="fade-in">Sélectionnez votre langue préférée</h1>
+    <p class="fade-in delay-1">pour le portfolio</p>
     <div class="lang-buttons fade-in delay-2">
       <a href="about-en.html" class="btn">English</a>
       <a href="about-fr.html" class="btn">Français</a>
