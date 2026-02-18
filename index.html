@@ -13,15 +13,13 @@
   <div class="content">
 
     <div class="rotating-text-container">
-      <!-- Headings -->
-      <h1 class="lang-en">Select your preferred language</h1>
-      <h1 class="lang-fr">Sélectionnez votre langue préférée</h1>
-      <h1 class="lang-es">Seleccione su idioma preferido</h1>
+      <h1>Select your preferred language</h1>
+      <h1>Sélectionnez votre langue préférée</h1>
+      <h1>Seleccione su idioma preferido</h1>
 
-      <!-- Subheadings -->
-      <p class="lang-en">for portfolio</p>
-      <p class="lang-fr">pour le portfolio</p>
-      <p class="lang-es">para el portafolio</p>
+      <p>for portfolio</p>
+      <p>pour le portfolio</p>
+      <p>para el portafolio</p>
     </div>
 
     <div class="lang-buttons">
@@ -32,6 +30,31 @@
 
   </div>
 </section>
+
+<script>
+const headers = document.querySelectorAll('.rotating-text-container h1');
+const paragraphs = document.querySelectorAll('.rotating-text-container p');
+let current = 0;
+
+function showNext() {
+  // Hide all
+  headers.forEach(h => h.style.opacity = 0);
+  paragraphs.forEach(p => p.style.opacity = 0);
+
+  // Show current
+  headers[current].style.opacity = 1;
+  paragraphs[current].style.opacity = 1;
+
+  // Move to next
+  current = (current + 1) % headers.length;
+}
+
+// Initial display
+showNext();
+
+// Change every 1 second
+setInterval(showNext, 1000);
+</script>
 
 </body>
 </html>
