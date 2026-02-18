@@ -79,9 +79,9 @@ body, html {
   animation: fadeInUp 1s forwards;
 }
 
-.delay-1 { animation-delay: 0.5s; }
+.delay-1 { animation-delay: 0s; }
 .delay-2 { animation-delay: 1s; }
-.delay-3 { animation-delay: 1.5s; }
+.delay-3 { animation-delay: 2s; }
 
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
