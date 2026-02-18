@@ -12,7 +12,7 @@ body, html {
 .landing {
   position: relative;
   display: grid;
-  place-items: center; 
+  place-items: center;
   min-height: 100vh;
   text-align: center;
   overflow: hidden;
@@ -36,7 +36,7 @@ body, html {
 /* ===== ROTATING LANGUAGE TEXT ===== */
 .rotating-text-container {
   position: relative;
-  height: 4rem; /* adjust for h1+p combined height */
+  height: 4rem; /* adjust to fit your h1+p height */
   overflow: hidden;
 }
 
@@ -45,21 +45,7 @@ body, html {
   position: absolute;
   width: 100%;
   opacity: 0;
-  animation: fadeRotate 3s linear infinite;
-}
-
-/* Stagger each language */
-.lang-en { animation-delay: 0s; }
-.lang-fr { animation-delay: 1s; }
-.lang-es { animation-delay: 2s; }
-
-/* Smooth fade in/out with slide */
-@keyframes fadeRotate {
-  0%   { opacity: 0; transform: translateY(20px); }
-  10%  { opacity: 1; transform: translateY(0); }
-  33%  { opacity: 1; transform: translateY(0); }
-  43%  { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 0; transform: translateY(-20px); }
+  transition: opacity 0.5s ease; /* smooth fade in/out */
 }
 
 /* ===== TEXT ===== */
@@ -99,21 +85,6 @@ body, html {
   color: #0984e3;
   transform: translateY(-5px);
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-/* ===== ANIMATIONS ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-.delay-1 { animation-delay: 0.5s; }
-.delay-2 { animation-delay: 1s; }
-.delay-3 { animation-delay: 1.5s; }
-
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== ABOUT ME PAGE ===== */
