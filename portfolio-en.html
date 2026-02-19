@@ -131,27 +131,28 @@
       font-size: 1.9rem;
     }
 
-    /* Shared styles for Experience & Projects */
-    .experience-item, .project-item {
+    /* Shared styles for Experience, Projects & Education */
+    .experience-item, .project-item, .education-item {
       margin-bottom: 2.8rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .experience-item:last-child, .project-item:last-child {
+    .experience-item:last-child, .project-item:last-child, .education-item:last-child {
       border-bottom: none;
       margin-bottom: 0;
     }
 
-    .exp-header, .project-header {
+    .exp-header, .project-header, .education-header {
       display: flex;
       align-items: center;
+      justify-content: space-between; /* ← Key change: title left, logo right */
       gap: 1.4rem;
       margin-bottom: 1.4rem;
       flex-wrap: wrap;
     }
 
-    .company-logo, .project-logo {
+    .company-logo, .project-logo, .institute-logo {
       width: 80px;
       height: 80px;
       object-fit: contain;
@@ -161,36 +162,40 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .exp-info h3, .project-info h3 {
+    .exp-info, .project-info, .education-info {
+      flex: 1; /* Takes available space on the left */
+    }
+
+    .exp-info h3, .project-info h3, .education-info h3 {
       font-size: 1.45rem;
       margin-bottom: 0.4rem;
       color: white;
     }
 
-    .exp-duration, .project-duration {
+    .exp-duration, .project-duration, .education-duration {
       font-size: 0.98rem;
       color: var(--text-light);
       font-weight: 500;
     }
 
-    .exp-location, .project-context {
+    .exp-location, .project-context, .institute-name {
       font-size: 0.98rem;
       color: var(--primary);
     }
 
-    .exp-tasks, .project-tasks {
+    .exp-tasks, .project-tasks, .education-modules {
       list-style: none;
       margin: 1.4rem 0;
       padding-left: 1.6rem;
     }
 
-    .exp-tasks li, .project-tasks li {
+    .exp-tasks li, .project-tasks li, .education-modules li {
       margin-bottom: 0.8rem;
       position: relative;
       padding-left: 1.6rem;
     }
 
-    .exp-tasks li::before, .project-tasks li::before {
+    .exp-tasks li::before, .project-tasks li::before, .education-modules li::before {
       content: "•";
       color: var(--primary);
       position: absolute;
@@ -199,7 +204,7 @@
       line-height: 1;
     }
 
-    .exp-tasks strong, .project-tasks strong {
+    .exp-tasks strong, .project-tasks strong, .education-modules strong {
       display: block;
       margin: 1.6rem 0 0.9rem;
       font-size: 1.22rem;
@@ -269,8 +274,12 @@
       .btn, .download-btn { padding: 0.65rem 1.3rem; font-size: 0.93rem; }
       h1 { font-size: 2.4rem; }
       .portfolio-content { padding: 1.8rem; }
-      .exp-header, .project-header { flex-direction: column; align-items: flex-start; text-align: center; }
-      .company-logo, .project-logo { margin: 0 auto; }
+      .exp-header, .project-header, .education-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .company-logo, .project-logo, .institute-logo { margin: 0 auto; }
     }
   </style>
 </head>
@@ -447,40 +456,40 @@
         <div class="screenshots-grid">
           <h4>Screenshots</h4>
           <div class="grid">
-            <a href="screenshots/valeo/1.jpg" class="screenshot-link" data-full="images/screenshots/valeo/1.jpg">
+            <a href="screenshots/valeo/1.jpg" class="screenshot-link" data-full="screenshots/valeo/1.jpg">
               <img src="screenshots/valeo/1.jpg" alt="Screenshot 1 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/2.jpg" class="screenshot-link" data-full="images/screenshots/valeo/2.jpg">
+            <a href="screenshots/valeo/2.jpg" class="screenshot-link" data-full="screenshots/valeo/2.jpg">
               <img src="screenshots/valeo/2.jpg" alt="Screenshot 2 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/3.jpg" class="screenshot-link" data-full="images/screenshots/valeo/3.jpg">
+            <a href="screenshots/valeo/3.jpg" class="screenshot-link" data-full="screenshots/valeo/3.jpg">
               <img src="screenshots/valeo/3.jpg" alt="Screenshot 3 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/4.jpg" class="screenshot-link" data-full="images/screenshots/valeo/4.jpg">
+            <a href="screenshots/valeo/4.jpg" class="screenshot-link" data-full="screenshots/valeo/4.jpg">
               <img src="screenshots/valeo/4.jpg" alt="Screenshot 4 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/5.jpg" class="screenshot-link" data-full="images/screenshots/valeo/5.jpg">
+            <a href="screenshots/valeo/5.jpg" class="screenshot-link" data-full="screenshots/valeo/5.jpg">
               <img src="screenshots/valeo/5.jpg" alt="Screenshot 5 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/6.jpg" class="screenshot-link" data-full="images/screenshots/valeo/6.jpg">
+            <a href="screenshots/valeo/6.jpg" class="screenshot-link" data-full="screenshots/valeo/6.jpg">
               <img src="screenshots/valeo/6.jpg" alt="Screenshot 6 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/7.jpg" class="screenshot-link" data-full="images/screenshots/valeo/7.jpg">
+            <a href="screenshots/valeo/7.jpg" class="screenshot-link" data-full="screenshots/valeo/7.jpg">
               <img src="screenshots/valeo/7.jpg" alt="Screenshot 7 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/8.jpg" class="screenshot-link" data-full="images/screenshots/valeo/8.jpg">
+            <a href="screenshots/valeo/8.jpg" class="screenshot-link" data-full="screenshots/valeo/8.jpg">
               <img src="screenshots/valeo/8.jpg" alt="Screenshot 8 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/9.jpg" class="screenshot-link" data-full="images/screenshots/valeo/9.jpg">
+            <a href="screenshots/valeo/9.jpg" class="screenshot-link" data-full="screenshots/valeo/9.jpg">
               <img src="screenshots/valeo/9.jpg" alt="Screenshot 9 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/10.jpg" class="screenshot-link" data-full="images/screenshots/valeo/10.jpg">
+            <a href="screenshots/valeo/10.jpg" class="screenshot-link" data-full="screenshots/valeo/10.jpg">
               <img src="screenshots/valeo/10.jpg" alt="Screenshot 10 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/11.jpg" class="screenshot-link" data-full="images/screenshots/valeo/11.jpg">
+            <a href="screenshots/valeo/11.jpg" class="screenshot-link" data-full="screenshots/valeo/11.jpg">
               <img src="screenshots/valeo/11.jpg" alt="Screenshot 11 – Valeo" loading="lazy">
             </a>
-            <a href="screenshots/valeo/12.jpg" class="screenshot-link" data-full="images/screenshots/valeo/12.jpg">
+            <a href="screenshots/valeo/12.jpg" class="screenshot-link" data-full="screenshots/valeo/12.jpg">
               <img src="screenshots/valeo/12.jpg" alt="Screenshot 12 – Valeo" loading="lazy">
             </a>
           </div>
@@ -490,7 +499,7 @@
     </div>
   </div>
 
-  <!-- PROJECTS SECTION – Redesigned like Experience -->
+  <!-- PROJECTS SECTION – unchanged -->
   <div id="projects" class="portfolio-content">
     <div class="card">
       <h2>Projects</h2>
@@ -571,11 +580,10 @@
           <li>Ensured effective cross-functional coordination with instructors and academic supervisors</li>
           <li>Supervised the programming and electrical teams, providing technical guidance and validating deliverables</li>
           <li>Managed technical documentation, structured reporting, and data analysis to ensure traceability and project transparency</li>
-        
 
           <strong>Technical Responsibilities</strong>
           <li>Designed and developed educational electronic prototypes with PCB interfaces using Proteus</li>
-          <li>Designed the complete ssmechanical structure of the CNC PCB engraving machine using SolidWorks as the mechanical design leadg</li>
+          <li>Designed the complete mechanical structure of the CNC PCB engraving machine using SolidWorks as the mechanical design lead</li>
           <li>Oversaw system integration between mechanical, electrical, and software components</li>
           <li>Participated in the design and programming of the CNC PCB engraving machine using Arduino, FlatCAM, and UGS (Universal G-code Sender)</li>
           <li>Contributed to testing, calibration, and performance validation of the final system</li>
@@ -613,7 +621,7 @@
         <div class="project-header">
           <img src="images/expleo-logo-and-tagline.png" alt="Expleo Logo" class="project-logo">
           <div class="project-info">
-            <h3>Final-Year Internship – Automotive Diagnostic Technical Assistant, PCPR Departmen</h3>
+            <h3>Final-Year Internship – Automotive Diagnostic Technical Assistant, PCPR Department</h3>
             <div class="project-duration">September 16, 2024 – December 27, 2024</div>
             <div class="project-context">Tangier, Morocco – Expleo</div>
           </div>
@@ -682,23 +690,21 @@
     </div>
   </div>
 
-  <!-- The other sections remain completely unchanged -->
-  <!-- EDUCATION SECTION – Redesigned as requested -->
+  <!-- EDUCATION SECTION – Updated layout: title left, logo right -->
   <div id="education" class="portfolio-content">
     <div class="card">
       <h2>Education</h2>
 
-      <!-- Formation 1 -->
+      <!-- Entry 1 -->
       <div class="education-item">
         <div class="education-header">
-          <img src="images/institut-1-logo.png" alt="Institut 1" class="institute-logo">
           <div class="education-info">
             <h3><strong>Technicien Spécialisé en Systèmes Industriels Automatisés</strong></h3>
             <div class="education-duration">2022 – 2024</div>
-            <div class="institute-name">OFPPT – Institut Spécialisé de Technologie Appliquée</div>
+            <div class="institute-name">OFPPT – Institut Spécialisé de Technologie Appliquée, Tangier</div>
           </div>
+          <img src="images/ofppt-logo.png" alt="OFPPT" class="institute-logo">
         </div>
-
         <ul class="education-modules">
           <li>Automatisme industriel et programmation PLC (Siemens, Schneider)</li>
           <li>Conception et mise en œuvre de systèmes SCADA / HMI</li>
@@ -708,17 +714,16 @@
         </ul>
       </div>
 
-      <!-- Formation 2 -->
+      <!-- Entry 2 -->
       <div class="education-item">
         <div class="education-header">
-          <img src="images/institut-2-logo.png" alt="Institut 2" class="institute-logo">
           <div class="education-info">
             <h3><strong>Baccalauréat Technique – Génie Électrique</strong></h3>
             <div class="education-duration">2019 – 2022</div>
-            <div class="institute-name">Lycée Technique Mohammed V</div>
+            <div class="institute-name">Lycée Technique Mohammed V, Tangier</div>
           </div>
+          <img src="images/lycee-technique-logo.png" alt="Lycée Technique" class="institute-logo">
         </div>
-
         <ul class="education-modules">
           <li>Électrotechnique et machines électriques</li>
           <li>Électronique analogique et numérique</li>
@@ -728,17 +733,16 @@
         </ul>
       </div>
 
-      <!-- Formation 3 -->
+      <!-- Entry 3 -->
       <div class="education-item">
         <div class="education-header">
-          <img src="images/institut-3-logo.png" alt="Institut 3" class="institute-logo">
           <div class="education-info">
             <h3><strong>Certification en Développement Web Full-Stack</strong></h3>
             <div class="education-duration">2024 – 2025</div>
-            <div class="institute-name">OpenClassrooms / Udemy</div>
+            <div class="institute-name">OpenClassrooms / Udemy (Online)</div>
           </div>
+          <img src="images/openclassrooms-logo.png" alt="OpenClassrooms" class="institute-logo">
         </div>
-
         <ul class="education-modules">
           <li>HTML, CSS, JavaScript (ES6+)</li>
           <li>React.js et gestion d'état (Redux / Context API)</li>
@@ -781,7 +785,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Tab/section switching
     const buttons = document.querySelectorAll('.portfolio-nav button[data-target]');
     const sections = document.querySelectorAll('.portfolio-content');
 
@@ -802,7 +805,6 @@
       });
     });
 
-    // ── LIGHTBOX FUNCTIONALITY ──
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
