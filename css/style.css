@@ -1,191 +1,233 @@
-/* ===== GLOBAL ===== */
+/* ===== GLOBAL – Industrie 4.0 × IA ===== */
+:root {
+  --bg-dark:      #0a0e17;
+  --bg-darker:    #05070e;
+  --neon-cyan:    #00f0ff;
+  --neon-magenta: #ff00d9;
+  --neon-purple:  #a500f2;
+  --neon-green:   #00ff9d;
+  --text-light:   #e0f7ff;
+  --text-muted:   #a3bffa;
+  --glass:        rgba(20, 30, 60, 0.35);
+  --glow-cyan:    0 0 20px rgba(0, 240, 255, 0.5);
+  --glow-magenta: 0 0 25px rgba(255, 0, 217, 0.4);
+}
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
-  background-color: #0f172a;
-  color: #fff;
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
 }
 
-/* ===== LANDING PAGE ===== */
+/* Subtle animated background grid (optionnel mais très 4.0) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* ===== LANDING – Hero Industry 4.0 / IA ===== */
 .landing {
   position: relative;
   display: grid;
-  place-items: center; /* perfect vertical + horizontal centering */
+  place-items: center;
   min-height: 100vh;
   text-align: center;
+  background: linear-gradient(135deg, #0a1120, #0f1a36, #051525);
   overflow: hidden;
-  background: linear-gradient(135deg, #015d32, #04233a);
 }
 
 .landing .overlay {
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: rgba(255,255,255,0.05);
-  transform: rotate(25deg);
+  inset: -50%;
+  background: radial-gradient(circle at 30% 70%, rgba(0,240,255,0.08), transparent 40%);
+  transform: rotate(-15deg);
   pointer-events: none;
+  animation: slowPulse 18s infinite alternate;
+}
+
+@keyframes slowPulse {
+  0%,100% { opacity: 0.5; transform: scale(1.05) rotate(-15deg); }
+  50%     { opacity: 0.9; transform: scale(1.12) rotate(-12deg); }
 }
 
 .landing .content {
   position: relative;
   z-index: 2;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+  background: var(--glass);
+  border: 1px solid rgba(0,240,255,0.18);
+  border-radius: 16px;
+  box-shadow: var(--glow-cyan), 0 8px 32px rgba(0,0,0,0.5);
 }
 
-/* ===== TEXT ===== */
+/* ===== TEXT – style plus "digital" ===== */
 .landing h1 {
-  font-size: 3rem;
-  margin: 0;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(0,240,255,0.6);
+  margin: 0 0 0.8rem;
 }
 
 .landing p {
-  font-size: 1.5rem;
-  margin: 15px 0 30px 0;
-  letter-spacing: 1px;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  max-width: 720px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 1.2rem auto 2.5rem;
+  letter-spacing: 0.5px;
 }
 
-/* ===== BUTTONS ===== */
+/* ===== BUTTONS – neon + glass effect ===== */
 .lang-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 .lang-buttons .btn {
-  background: rgba(255,255,255,0.15);
-  color: white;
-  font-size: 1.2rem;
-  padding: 15px 30px;
-  border: 2px solid white;
-  border-radius: 10px;
+  position: relative;
+  padding: 1rem 2.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--neon-cyan);
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 12px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--glow-cyan);
+}
+
+.lang-buttons .btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0,240,255,0.25), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.lang-buttons .btn:hover::before,
+.lang-buttons .btn:focus::before {
+  transform: translateX(100%);
 }
 
 .lang-buttons .btn:hover,
 .lang-buttons .btn:focus {
-  background: white;
-  color: #0984e3;
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  color: white;
+  background: rgba(0,240,255,0.15);
+  border-color: white;
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: var(--glow-cyan), 0 15px 35px rgba(0,0,0,0.5);
 }
 
 /* ===== ANIMATIONS ===== */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
+  transform: translateY(40px) scale(0.95);
+  animation: fadeInUpTech 1.2s forwards cubic-bezier(0.16,1,0.3,1);
 }
 
-.delay-1 { animation-delay: 0.5s; }
-.delay-2 { animation-delay: 1s; }
-.delay-3 { animation-delay: 1.5s; }
+.delay-1 { animation-delay: 0.6s; }
+.delay-2 { animation-delay: 1.1s; }
+.delay-3 { animation-delay: 1.6s; }
 
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUpTech {
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ===== ABOUT ME PAGE ===== */
+/* ===== ABOUT – version IA futuriste ===== */
 .about {
   display: grid;
   place-items: center;
   min-height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(160deg, #0d1326, #141b38, #0a1120);
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #00b894, #0984e3);
 }
 
 .about img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 4px solid var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
   object-fit: cover;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.8rem;
+  transition: all 0.5s ease;
 }
 
 .about img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 0 40px rgba(0,240,255,0.7);
 }
 
-.about h1 { font-size: 2.8rem; margin: 10px 0; }
-.about h2 { font-size: 1.8rem; margin: 5px 0; }
-.about p { font-size: 1.2rem; margin: 15px 0 30px 0; line-height: 1.5; letter-spacing: 0.5px; }
-
-/* Buttons on About Me page inherit styles */
-.about .lang-buttons {
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+.about h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-/* ===== PORTFOLIO PAGE ===== */
-.portfolio-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
-}
+.about h2 { color: var(--neon-magenta); }
 
-.portfolio-nav .btn {
-  font-size: 1rem;
-  padding: 10px 20px;
-}
-
-/* Portfolio content cards */
+/* ===== PORTFOLIO – cards cyber ===== */
 .portfolio-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto 50px auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
 }
 
 .card {
-  background: white;
-  color: #2f3640;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,240,255,0.15);
+  border-radius: 16px;
+  padding: 1.8rem;
+  color: var(--text-light);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  transform: translateY(-12px);
+  border-color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan), 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* ===== CONTACT PAGE ===== */
+/* ===== CONTACT ===== */
 .contact {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #00b894, #0984e3);
-}
-
-.contact a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact a:hover {
-  text-decoration: underline;
+  background: linear-gradient(135deg, #0f1a36, #0a1120);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .landing h1, .about h1 { font-size: 2.2rem; }
-  .landing p, .about p { font-size: 1.2rem; }
-  .lang-buttons .btn { font-size: 1rem; padding: 12px 25px; }
-  .portfolio-nav .btn { font-size: 0.9rem; padding: 8px 15px; }
-  .card { padding: 15px; }
+  .landing h1        { font-size: 3.2rem; }
+  .landing p         { font-size: 1.35rem; }
+  .lang-buttons .btn { padding: 0.9rem 1.8rem; font-size: 1.1rem; }
+  .about img         { width: 150px; height: 150px; }
 }
