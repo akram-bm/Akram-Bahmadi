@@ -1,1 +1,1385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BAHMADI Akram - Portfolio</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    .portfolio { max-width: 1100px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .intro {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1.15rem;
+    }
+
+    /* Navegación */
+    .portfolio-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      padding: 0.6rem;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn, .download-btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.28s ease;
+      text-decoration: none;
+      font-size: 0.97rem;
+    }
+
+    .btn:hover, .download-btn:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 1.4rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .download-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
+    }
+
+    /* Contenido */
+    .portfolio-content {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      display: none;
+    }
+
+    .portfolio-content.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      display: block;
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+    }
+
+    /* Estilos específicos para la sección de inicio */
+    .home-title {
+      text-align: center;
+      color: white;
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .home-subtitle {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .home-section-title {
+      text-align: center;
+      color: white;
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .home-intro-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      text-align: center;
+    }
+
+    .home-intro-card p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .home-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 12px;
+      padding: 1.6rem;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .home-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+    }
+
+    .home-card h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+      padding-bottom: 0.6rem;
+    }
+
+    .home-card p, .home-card ul {
+      font-size: 1rem;
+    }
+
+    .home-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .home-card li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .home-card li::before {
+      content: "→";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .vision-card {
+      background: rgba(99, 102, 241, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--primary);
+      margin: 3rem 0 1rem;
+    }
+
+    /* Estilos compartidos para otras secciones */
+    .experience-item, .project-item, .education-item {
+      margin-bottom: 2.8rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .experience-item:last-child, .project-item:last-child, .education-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .exp-header, .project-header, .education-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.4rem;
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .company-logo, .project-logo, .institute-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .exp-info, .project-info, .education-info {
+      flex: 1;
+    }
+
+    .exp-info h3, .project-info h3, .education-info h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.4rem;
+      color: white;
+    }
+
+    .exp-duration, .project-duration, .education-duration {
+      font-size: 0.98rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .exp-location, .project-context, .institute-name {
+      font-size: 0.98rem;
+      color: var(--primary);
+    }
+
+    .education-grid,
+    .skills-grid,
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .education-card,
+    .skill-card,
+    .language-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 12px;
+      padding: 1.6rem;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .education-card:hover,
+    .skill-card:hover,
+    .language-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+    }
+
+    .education-card h4,
+    .skill-card h4,
+    .language-card h4 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+      padding-bottom: 0.6rem;
+    }
+
+    .education-card ul,
+    .skill-card ul,
+    .language-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .education-card li,
+    .skill-card li,
+    .language-card li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 0.98rem;
+    }
+
+    .education-card li::before,
+    .skill-card li::before,
+    .language-card li::before {
+      content: "→";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Grid de certificaciones */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .certification-item {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .certification-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(99, 102, 241, 0.35);
+      border-color: var(--primary);
+    }
+
+    .cert-img-container {
+      flex: 0 0 40%;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+    }
+
+    .cert-img-container img {
+      max-width: 100%;
+      max-height: 240px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .cert-info {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cert-title {
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cert-org {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .cert-detail {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cert-link {
+      margin-top: 1.2rem;
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .cert-link:hover {
+      color: #a5b4fc;
+      text-decoration: underline;
+    }
+
+    .screenshots-grid {
+      margin-top: 1.8rem;
+    }
+
+    .screenshots-grid h4 {
+      font-size: 1.18rem;
+      margin-bottom: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .screenshot-link {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      cursor: zoom-in;
+    }
+
+    .screenshot-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 35px rgba(99, 102, 241, 0.3);
+    }
+
+    .screenshot-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    #lightbox img {
+      max-width: 94vw;
+      max-height: 94vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.7);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .certification-item {
+        flex-direction: column;
+      }
+      .cert-img-container {
+        padding: 1.5rem 1rem 0.8rem;
+      }
+      .cert-info {
+        padding: 1.8rem;
+      }
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .portfolio-nav { padding: 0.5rem; gap: 0.6rem; }
+      .btn, .download-btn { padding: 0.65rem 1.3rem; font-size: 0.93rem; }
+      h1 { font-size: 2.4rem; }
+      .portfolio-content { padding: 1.8rem; }
+      .exp-header, .project-header, .education-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .company-logo, .project-logo, .institute-logo { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="portfolio">
+
+  <h1>Portfolio</h1>
+  <p class="intro">Descubre mi trayectoria profesional, mis proyectos y mi experiencia técnica.</p>
+
+  <!-- Navegación -->
+  <nav class="portfolio-nav">
+    <a href="about-es.html" class="btn">Inicio</a>
+    <button class="btn active" data-target="home">Bienvenido</button>
+    <button class="btn" data-target="experience">Experiencia profesional</button>
+    <button class="btn" data-target="projects">Proyectos</button>
+    <button class="btn" data-target="education">Formación</button>
+    <button class="btn" data-target="skills">Habilidades</button>
+    <button class="btn" data-target="certifications">Certificaciones</button>
+    <button class="btn" data-target="languages">Idiomas</button>
+  </nav>
+
+  <!-- Inicio / Bienvenido -->
+  <div id="home" class="portfolio-content active">
+    <div class="card">
+
+      <h2 class="home-title">Portfolio</h2>
+      <h3 class="home-subtitle">Conectando la Automatización Industrial y la Innovación Digital</h3>
+
+      <!-- Quién soy -->
+      <div class="home-intro-card">
+        <h3>Quién soy</h3>
+        <p>Soy Akram Bahmadi, Técnico Especializado en Sistemas Automatizados Industriales y Desarrollador Web & Mobile. Trabajo en la intersección entre la ingeniería industrial y las tecnologías digitales, combinando experiencia práctica en hardware con habilidades de software para crear soluciones inteligentes y conectadas.</p>
+      </div>
+
+      <!-- Roles que puedo desempeñar -->
+      <h3 class="home-section-title">Roles que puedo desempeñar</h3>
+      <div class="home-grid">
+        <div class="home-card">
+          <h4>Técnico de Ingeniería</h4>
+          <p>Diseño y modelado de sistemas industriales</p>
+        </div>
+        <div class="home-card">
+          <h4>Técnico de Procesos</h4>
+          <p>Optimización de flujos de trabajo y procesos de producción</p>
+        </div>
+        <div class="home-card">
+          <h4>Técnico de Métodos</h4>
+          <p>Planificación e implementación de métodos eficientes</p>
+        </div>
+        <div class="home-card">
+          <h4>Técnico de Calidad</h4>
+          <p>Garantía de estándares y fiabilidad de sistemas</p>
+        </div>
+        <div class="home-card">
+          <h4>Técnico de Mantenimiento</h4>
+          <p>Mantenimiento, diagnóstico y mejora de equipos automatizados</p>
+        </div>
+      </div>
+
+      <!-- Lo que he realizado -->
+      <h3 class="home-section-title">Lo que he realizado</h3>
+      <div class="home-grid">
+        <div class="home-card">
+          <p>Diagnóstico industrial y mantenimiento de pruebas eléctricas en Valeo, EMDEP y Expleo</p>
+        </div>
+        <div class="home-card">
+          <p>Desarrollo full-stack web y móvil con Java, JavaScript, PHP y frameworks modernos</p>
+        </div>
+        <div class="home-card">
+          <p>Programación PLC (TIA Portal, PLCnext), modelado MATLAB/Simulink y diseño CAD con SolidWorks y Proteus</p>
+        </div>
+        <div class="home-card">
+          <p>Liderazgo de equipos multidisciplinarios en proyectos como máquinas CNC de grabado de PCB y modelos didácticos digitales</p>
+        </div>
+      </div>
+
+      <!-- Mi visión -->
+      <div class="vision-card">
+        <h3>Mi visión</h3>
+        <p>Quiero combinar inteligencia artificial, programación y tecnologías de Industria 4.0 para crear sistemas industriales automatizados inteligentes, eficientes, adaptativos y completamente conectados.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Experiencia profesional -->
+  <div id="experience" class="portfolio-content">
+    <div class="card">
+      <h2>Experiencia profesional</h2>
+
+      <!-- EMDEP -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/images.png" alt="EMDEP" class="company-logo">
+          <div class="exp-info">
+            <h3>Prácticas – Técnico de Mantenimiento de Pruebas Eléctricas</h3>
+            <div class="exp-duration">4 de julio de 2025 – 6 de agosto de 2025</div>
+            <div class="exp-location">Tánger, Marruecos – EMDEP</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <strong>Pruebas y Puesta en Marcha</strong>
+          <li>Electrificación y Cableado: Cableado completo y electrificación de bancos de pruebas</li>
+          <li>Configuración del sistema: Declaración y configuración software de placas electrónicas de prueba</li>
+          <li>Parametrización personalizada: Ajuste técnico de contrapartes y módulos de contacto según el diseño específico de cada cliente</li>
+
+          <strong>Realización Técnica Específica (Proyecto GTI)</strong>
+          <li>Fabricación completa (Proyecto GTI): Diseño y ensamblaje de principio a fin de barras LED</li>
+          <li>Ensamblaje electrónico: Soldadura, integración de componentes y gestión de circuitos eléctricos</li>
+          <li>Control de calidad y rendimiento: Pruebas de luminosidad y continuidad para garantizar durabilidad según normas automotrices</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla del proyecto</h4>
+          <div class="grid">
+            <a href="Compress/emdep/1.jpg" class="screenshot-link" data-full="Compress/emdep/1.jpg">
+              <img src="screenshots/emdep/1.jpg" alt="Cableado banco de pruebas – EMDEP" loading="lazy">
+            </a>
+            <a href="Compress/emdep/2.jpg" class="screenshot-link" data-full="Compress/emdep/2.jpg">
+              <img src="screenshots/emdep/2.jpg" alt="Configuración placa electrónica – EMDEP" loading="lazy">
+            </a>
+            <a href="Compress/emdep/3.jpg" class="screenshot-link" data-full="Compress/emdep/3.jpg">
+              <img src="screenshots/emdep/3.jpg" alt="Ensamblaje barra LED GTI – EMDEP" loading="lazy">
+            </a>
+            <a href="Compress/emdep/4.jpg" class="screenshot-link" data-full="Compress/emdep/4.jpg">
+              <img src="screenshots/emdep/4.jpg" alt="Pruebas luminosidad y continuidad – EMDEP" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expleo -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/expleo-logo-and-tagline.png" alt="Expleo" class="company-logo">
+          <div class="exp-info">
+            <h3>Prácticas de fin de estudios – Asistente Técnico de Diagnóstico Automotriz, Departamento PCPR</h3>
+            <div class="exp-duration">16 de septiembre de 2024 – 27 de diciembre de 2024</div>
+            <div class="exp-location">Tánger, Marruecos – Expleo</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <strong>Proyecto: Modelado del sistema de frenos antibloqueo (ABS) con MATLAB</strong>
+
+          <strong>Soporte técnico y transferencia de conocimientos (División PCPR)</strong>
+          <li>Análisis y gestión de incidencias: Tratamiento de casos técnicos mediante proceso de ticketing, análisis de datos de fallos para identificar causas raíz</li>
+          <li>Diagnóstico profundo de motores: Controles técnicos en motores gasolina (EB) y diésel (DV), mediciones de compresión y fugas de cilindros</li>
+          <li>Uso de herramientas especializadas: Cámaras endoscópicas y herramientas del grupo Stellantis (Items, TSB) para recomendar soluciones de reparación</li>
+          <li>Experticia en esquemas eléctricos: Análisis de diagramas eléctricos para diagnóstico de inyección, arranque y postratamiento de escape (SCR, DPF)</li>
+
+          <strong>Vigilancia tecnológica y movilidad eléctrica</strong>
+          <li>Formación en vehículo eléctrico (BEV): Estudio detallado de modos de carga (Modo 2, 3 y 4) e infraestructura de recarga</li>
+          <li>Análisis de cadena de tracción eléctrica: Funcionamiento de baterías de litio de alta tensión, inversores y gestión energética del motor</li>
+        </ul>
+
+        <a href="PDF/rapport-expleo.pdf" class="download-btn" download>Descargar el informe de prácticas (PDF)</a>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla del proyecto</h4>
+          <div class="grid">
+            <a href="Compress/expleo/1.jpg" class="screenshot-link" data-full="Compress/expleo/1.jpg">
+              <img src="screenshots/expleo/1.jpg" alt="Captura 1 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/2.jpg" class="screenshot-link" data-full="Compress/expleo/2.jpg">
+              <img src="screenshots/expleo/2.jpg" alt="Captura 2 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/3.jpg" class="screenshot-link" data-full="Compress/expleo/3.jpg">
+              <img src="screenshots/expleo/3.jpg" alt="Captura 3 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/4.jpg" class="screenshot-link" data-full="Compress/expleo/4.jpg">
+              <img src="screenshots/expleo/4.jpg" alt="Captura 4 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/5.jpg" class="screenshot-link" data-full="Compress/expleo/5.jpg">
+              <img src="screenshots/expleo/5.jpg" alt="Captura 5 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/6.jpg" class="screenshot-link" data-full="Compress/expleo/6.jpg">
+              <img src="screenshots/expleo/6.jpg" alt="Captura 6 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/7.jpg" class="screenshot-link" data-full="Compress/expleo/7.jpg">
+              <img src="screenshots/expleo/7.jpg" alt="Captura 7 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/8.jpg" class="screenshot-link" data-full="Compress/expleo/8.jpg">
+              <img src="screenshots/expleo/8.jpg" alt="Captura 8 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/9.jpg" class="screenshot-link" data-full="Compress/expleo/9.jpg">
+              <img src="screenshots/expleo/9.jpg" alt="Captura 9 – Expleo" loading="lazy">
+            </a>
+            <a href="Compress/expleo/10.jpg" class="screenshot-link" data-full="Compress/expleo/10.jpg">
+              <img src="screenshots/expleo/10.jpg" alt="Captura 10 – Expleo" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Valeo -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <img src="images/valeo-logo-rvb-1.jpg" alt="Valeo Lighting Systems" class="company-logo">
+          <div class="exp-info">
+            <h3>Prácticas de iniciación – Técnico de Mantenimiento de Pruebas, Departamento Vistronique</h3>
+            <div class="exp-duration">17 de enero de 2023 – 8 de abril de 2023</div>
+            <div class="exp-location">Tánger, Marruecos – Valeo Lighting Systems</div>
+          </div>
+        </div>
+
+        <ul class="exp-tasks">
+          <strong>Mantenimiento preventivo (SMD – Front End)</strong>
+          <li>Mantenimiento de máquinas de producción: Limpieza, engrase e inspección de cables en máquinas clave</li>
+          <li>Optimización de equipos: Limpieza específica de boquillas, mesas soporte y alojamientos de refrigeración</li>
+          <li>Control térmico de calidad: Estudios de perfil térmico para garantizar integridad de soldadura</li>
+          <li>Seguimiento técnico: Rellenado y seguimiento riguroso de fichas de mantenimiento preventivo</li>
+
+          <strong>Mantenimiento correctivo y análisis (Back End)</strong>
+          <li>Diagnóstico ICT: Análisis y resolución de problemas de pruebas analógicas/digitales en proyecto P2JO_RL</li>
+          <li>Intervenciones técnicas: Sustitución de componentes críticos en fixtures de prueba</li>
+          <li>Gestión de defectos: Análisis comparativo entre defectos reales y falsos según tolerancias y normas</li>
+
+          <strong>Mejora continua y seguridad</strong>
+          <li>Auditorías de seguridad: Inspección e implementación de dispositivos de protección</li>
+          <li>Diseño técnico (SolidWorks): Creación de modelos 3D para mejora de herramientas</li>
+          <li>Calidad: Participación en auditorías diarias y seguimiento de alertas para reducir tasa de rechazos</li>
+        </ul>
+
+        <a href="PDF/rapport-valeo.pdf" class="download-btn" download>Descargar el informe de prácticas (PDF)</a>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla</h4>
+          <div class="grid">
+            <a href="Compress/valeo/1.jpg" class="screenshot-link" data-full="Compress/valeo/1.jpg">
+              <img src="screenshots/valeo/1.jpg" alt="Captura 1 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/2.jpg" class="screenshot-link" data-full="Compress/valeo/2.jpg">
+              <img src="screenshots/valeo/2.jpg" alt="Captura 2 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/3.jpg" class="screenshot-link" data-full="Compress/valeo/3.jpg">
+              <img src="screenshots/valeo/3.jpg" alt="Captura 3 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/4.jpg" class="screenshot-link" data-full="Compress/valeo/4.jpg">
+              <img src="screenshots/valeo/4.jpg" alt="Captura 4 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/5.jpg" class="screenshot-link" data-full="Compress/valeo/5.jpg">
+              <img src="screenshots/valeo/5.jpg" alt="Captura 5 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/6.jpg" class="screenshot-link" data-full="Compress/valeo/6.jpg">
+              <img src="screenshots/valeo/6.jpg" alt="Captura 6 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/7.jpg" class="screenshot-link" data-full="Compress/valeo/7.jpg">
+              <img src="screenshots/valeo/7.jpg" alt="Captura 7 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/8.jpg" class="screenshot-link" data-full="Compress/valeo/8.jpg">
+              <img src="screenshots/valeo/8.jpg" alt="Captura 8 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/9.jpg" class="screenshot-link" data-full="Compress/valeo/9.jpg">
+              <img src="screenshots/valeo/9.jpg" alt="Captura 9 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/10.jpg" class="screenshot-link" data-full="Compress/valeo/10.jpg">
+              <img src="screenshots/valeo/10.jpg" alt="Captura 10 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/11.jpg" class="screenshot-link" data-full="Compress/valeo/11.jpg">
+              <img src="screenshots/valeo/11.jpg" alt="Captura 11 – Valeo" loading="lazy">
+            </a>
+            <a href="Compress/valeo/12.jpg" class="screenshot-link" data-full="Compress/valeo/12.jpg">
+              <img src="screenshots/valeo/12.jpg" alt="Captura 12 – Valeo" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Proyectos -->
+  <div id="projects" class="portfolio-content">
+    <div class="card">
+      <h2>Proyectos</h2>
+
+      <!-- Proyecto 1 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/ENSI.png" alt="Logo ENSI" class="project-logo">
+          <div class="project-info">
+            <h3>Líder de equipo – Proyecto de fin de formación</h3>
+            <div class="project-duration">Diciembre 2025 – Enero 2026</div>
+            <div class="project-context">ENSI (JobInTech)</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Tareas del proyecto:</strong>
+          <li>Liderazgo del equipo como responsable UI/UX, diseño de interfaces amigables y experiencia de usuario fluida</li>
+          <li>Participación activa en planificación, supervisión de tareas y coordinación de actividades</li>
+          <li>Colaboración estrecha con partes interesadas académicas y profesores</li>
+          <li>Análisis de rendimiento, identificación de mejoras, documentación estructurada y reportes detallados</li>
+          <li>Supervisión de fases de pruebas e integración para garantizar calidad y fiabilidad</li>
+
+          <strong>Implementación técnica</strong>
+          <li>Integración del modelo de neumático (Magic Formula) y dinámica del vehículo</li>
+          <li>Diseño y ajuste de controladores PID y lógica difusa</li>
+          <li>Comparación de rendimiento (distancia de frenado, tiempo de respuesta)</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla del proyecto</h4>
+          <div class="grid">
+            <a href="Compress/ENSI/1.png" class="screenshot-link" data-full="Compress/ENSI/1.png">
+              <img src="screenshots/ENSI/1.png" alt="Modelo ABS Simulink" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/2.png" class="screenshot-link" data-full="Compress/ENSI/2.png">
+              <img src="screenshots/ENSI/2.png" alt="Resultados simulación frenado" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/3.png" class="screenshot-link" data-full="Compress/ENSI/3.png">
+              <img src="screenshots/ENSI/3.png" alt="Gráficos de rendimiento" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/4.png" class="screenshot-link" data-full="Compress/ENSI/4.png">
+              <img src="screenshots/ENSI/4.png" alt="Gráficos de rendimiento" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/5.png" class="screenshot-link" data-full="Compress/ENSI/5.png">
+              <img src="screenshots/ENSI/5.png" alt="Gráficos de rendimiento" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/6.png" class="screenshot-link" data-full="Compress/ENSI/6.png">
+              <img src="screenshots/ENSI/6.png" alt="Gráficos de rendimiento" loading="lazy">
+            </a>
+            <a href="Compress/ENSI/7.png" class="screenshot-link" data-full="Compress/ENSI/7.png">
+              <img src="screenshots/ENSI/7.png" alt="Gráficos de rendimiento" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-kenz.pdf" class="download-btn" download>Descargar informe del proyecto (PDF)</a>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/ifmia.jpg" alt="Logo IFMIA" class="project-logo">
+          <div class="project-info">
+            <h3>Líder de equipo – Proyecto de fin de curso</h3>
+            <div class="project-duration">Enero 2025 – Mayo 2025</div>
+            <div class="project-context">IFMIA TFZ</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Proyecto 1: Diseño de un modelo didáctico de electrónica digital</strong>
+          <strong>Proyecto 2: Desarrollo de una máquina de grabado de PCB</strong>
+
+          <strong>Responsabilidades de gestión</strong>
+          <li>Liderazgo y coordinación de equipo multidisciplinario durante todo el ciclo del proyecto</li>
+          <li>Organización y dirección de reuniones periódicas de seguimiento</li>
+          <li>Coordinación efectiva con instructores y supervisores académicos</li>
+          <li>Supervisión de equipos de programación y eléctricos, validación de entregables</li>
+          <li>Gestión de documentación técnica, reporting estructurado y trazabilidad del proyecto</li>
+
+          <strong>Responsabilidades técnicas</strong>
+          <li>Diseño y desarrollo de prototipos electrónicos educativos con interfaces PCB en Proteus</li>
+          <li>Diseño completo de la estructura mecánica de la máquina CNC de grabado PCB en SolidWorks</li>
+          <li>Supervisión de integración mecánica, eléctrica y de software</li>
+          <li>Participación en programación de la máquina CNC (Arduino, FlatCAM, UGS)</li>
+          <li>Pruebas, calibración y validación de rendimiento del sistema final</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla del proyecto</h4>
+          <div class="grid">
+            <a href="Compress/School/1.jpg" class="screenshot-link" data-full="Compress/School/1.jpg">
+              <img src="screenshots/School/1.jpg" alt="Informe" loading="lazy">
+            </a>
+            <a href="Compress/School/2.jpg" class="screenshot-link" data-full="Compress/School/2.jpg">
+              <img src="screenshots/School/2.jpg" alt="Máquina VUE" loading="lazy">
+            </a>
+            <a href="Compress/School/3.jpg" class="screenshot-link" data-full="Compress/School/3.jpg">
+              <img src="screenshots/School/3.jpg" alt="Fijación motor" loading="lazy">
+            </a>
+            <a href="Compress/School/4.jpg" class="screenshot-link" data-full="Compress/School/4.jpg">
+              <img src="screenshots/School/4.jpg" alt="Fijación tornillo sin fin" loading="lazy">
+            </a>
+            <a href="Compress/School/5.jpg" class="screenshot-link" data-full="Compress/School/5.jpg">
+              <img src="screenshots/School/5.jpg" alt="Prototipo" loading="lazy">
+            </a>
+            <a href="Compress/School/6.jpg" class="screenshot-link" data-full="Compress/School/6.jpg">
+              <img src="screenshots/School/6.jpg" alt="Resultados" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-projet-automatisation.pdf" class="download-btn" download>Descargar informe del proyecto (PDF)</a>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project-item">
+        <div class="project-header">
+          <img src="images/expleo-logo-and-tagline.png" alt="Logo Expleo" class="project-logo">
+          <div class="project-info">
+            <h3>Prácticas de fin de estudios – Asistente Técnico de Diagnóstico Automotriz, Departamento PCPR</h3>
+            <div class="project-duration">16 de septiembre de 2024 – 27 de diciembre de 2024</div>
+            <div class="project-context">Tánger, Marruecos – Expleo</div>
+          </div>
+        </div>
+
+        <ul class="project-tasks">
+          <strong>Gestión de proyecto y Análisis funcional</strong>
+          <li>Definición de necesidades funcionales: Método « Bête à corne »</li>
+          <li>Análisis de interacciones: Creación del « Diagrama de Pulpo »</li>
+          <li>Diseño técnico: Realización SADT para modelado de sistema de alto nivel</li>
+          <li>Planificación: Elaboración del diagrama de Gantt</li>
+
+          <strong>Modelado del sistema ABS</strong>
+          <li>Identificación de parámetros: Velocidad vehículo, coeficientes de fricción neumático-carrera, fuerza de frenado</li>
+          <li>Integración factores ambientales: Condiciones de carretera y meteorológicas</li>
+          <li>Formulación matemática: Ecuaciones principales para fricción neumático-carrera, velocidad angular/lineal, retardo hidráulico</li>
+
+          <strong>Programación y simulación (MATLAB/Simulink)</strong>
+          <li>Implementación controlador Bang-Bang</li>
+          <li>Implementación controlador PID</li>
+          <li>Comparación de rendimiento de ambos controladores</li>
+          <li>Prueba de referencia: Simulación sistema con ABS desactivado</li>
+
+          <strong>Documentación y reporte</strong>
+          <li>Redacción de informe técnico detallado</li>
+          <li>Generación de gráficos comparativos de rendimiento</li>
+          <li>Conclusión final sobre ventajas del ABS para seguridad y control</li>
+        </ul>
+
+        <div class="screenshots-grid">
+          <h4>Capturas de pantalla del proyecto</h4>
+          <div class="grid">
+            <a href="Compress/ABS/1.jpg" class="screenshot-link" data-full="Compress/ABS/1.jpg">
+              <img src="Compress/ABS/1.jpg" alt="Controlador sistema ABS" loading="lazy">
+            </a>
+            <a href="Compress/ABS/2.jpg" class="screenshot-link" data-full="Compress/ABS/2.jpg">
+              <img src="Compress/ABS/2.jpg" alt="Gráficos en tiempo real" loading="lazy">
+            </a>
+            <a href="Compress/ABS/3.jpg" class="screenshot-link" data-full="Compress/ABS/3.jpg">
+              <img src="Compress/ABS/3.jpg" alt="Configuración MQTT" loading="lazy">
+            </a>
+            <a href="Compress/ABS/4.jpg" class="screenshot-link" data-full="Compress/ABS/4.jpg">
+              <img src="Compress/ABS/4.jpg" alt="Resultados simulación sistema" loading="lazy">
+            </a>
+            <a href="Compress/ABS/5.jpg" class="screenshot-link" data-full="Compress/ABS/5.jpg">
+              <img src="Compress/ABS/5.jpg" alt="Resultados simulación sistema" loading="lazy">
+            </a>
+            <a href="Compress/ABS/6.jpg" class="screenshot-link" data-full="Compress/ABS/6.jpg">
+              <img src="Compress/ABS/6.jpg" alt="Resultados simulación sistema" loading="lazy">
+            </a>
+            <a href="Compress/ABS/7.jpg" class="screenshot-link" data-full="Compress/ABS/7.jpg">
+              <img src="Compress/ABS/7.jpg" alt="Resultados simulación sistema" loading="lazy">
+            </a>
+            <a href="Compress/ABS/8.jpg" class="screenshot-link" data-full="Compress/ABS/8.jpg">
+              <img src="Compress/ABS/8.jpg" alt="Resultados simulación sistema" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <a href="PDF/rapport-projet-iot.pdf" class="download-btn" download>Descargar informe del proyecto (PDF)</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Formación -->
+  <div id="education" class="portfolio-content">
+    <div class="card">
+      <h2>Formación</h2>
+
+      <div class="education-item">
+        <div class="education-header">
+          <div class="education-info">
+            <h3><strong>Programa de formación JobInTech – Desarrollo Web y Mobile</strong></h3>
+            <div class="education-duration">09/2025 – 01/2026</div>
+            <div class="institute-name">Escuela de Nuevas Ciencias e Ingeniería (ENSI) │ Tánger</div>
+          </div>
+          <img src="images/ENSI.png" alt="ENSI" class="institute-logo">
+        </div>
+
+        <div class="education-grid">
+          <div class="education-card">
+            <h4>Módulo 1: Introducción al desarrollo web y móvil</h4>
+            <ul>
+              <li>HTML5 semántico</li>
+              <li>CSS3 avanzado (Flexbox, Grid)</li>
+              <li>Diseño responsive y accesibilidad</li>
+              <li>Arquitectura cliente-servidor (fundamentos)</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Módulo 2: Desarrollo Front-End con Angular</h4>
+            <ul></ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Módulo 3: Desarrollo Back-End</h4>
+            <ul>
+              <li>Arquitectura MVC</li>
+              <li>Creación de APIs REST con Spring Boot y .NET</li>
+              <li>Integración bases de datos (MySQL, SQL Server)</li>
+              <li>Autenticación y gestión de accesos</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Módulo 4: DevOps y Despliegue</h4>
+            <ul>
+              <li>Git, GitHub, GitHub Actions</li>
+              <li>Docker y contenedorización</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Módulo 5: Proyecto integrado</h4>
+            <ul>
+              <li>Diseño de arquitectura</li>
+              <li>Implementación del desarrollo</li>
+              <li>Documentación y entrega</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Módulo 6: Soft Skills</h4>
+            <ul>
+              <li>Trabajo en equipo y pair programming</li>
+              <li>Gestión del tiempo, estrés y priorización</li>
+              <li>Comunicación cliente/desarrollador</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segunda formación -->
+      <div class="education-item">
+        <div class="education-header">
+          <div class="education-info">
+            <h3><strong>Diploma de Técnico Especializado en Sistemas Automatizados Industriales</strong></h3>
+            <div class="education-duration">2023 – 2025</div>
+            <div class="institute-name">Instituto de Formación en Oficios de la Industria Automotriz (IFMIA TFZ) │ Tánger</div>
+          </div>
+          <img src="images/ifmia.jpg" alt="IFMIA TFZ" class="institute-logo">
+        </div>
+
+        <div class="education-grid">
+          <div class="education-card">
+            <h4>Automatización Industrial</h4>
+            <ul>
+              <li>GRAFCET (Gráficos de Comando Etapa/Transición)</li>
+              <li>Programación de autómatas (Siemens) – TIA Portal</li>
+              <li>Sistemas de control automático</li>
+              <li>MATLAB para automatización y simulación</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Electricidad Industrial y Electrotécnica</h4>
+            <ul>
+              <li>Electricidad industrial</li>
+              <li>Electrotécnica</li>
+              <li>Instrumentación y sensores</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Neumática e Hidráulica</h4>
+            <ul>
+              <li>Neumática y electro-neumática (FluidSIM)</li>
+              <li>Hidráulica (FluidSIM)</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Electrónica y Sistemas Digitales</h4>
+            <ul>
+              <li>Circuitos digitales (lógica combinacional y secuencial)</li>
+              <li>Circuitos analógicos</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Microprocesadores y Sistemas Embebidos</h4>
+            <ul>
+              <li>Arquitectura de microprocesadores</li>
+              <li>Programación en MicroC</li>
+              <li>Simulación con Proteus</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Programación</h4>
+            <ul>
+              <li>Lenguaje C</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Diseño Industrial</h4>
+            <ul>
+              <li>Fundamentos de diseño industrial</li>
+              <li>CATIA V5</li>
+              <li>SolidWorks</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Producción y Mecanizado</h4>
+            <ul>
+              <li>Fabricación de PCB con FlatCAM</li>
+              <li>Control G-code con Universal G-code Sender (UGS)</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h4>Ingeniería Industrial y Fabricación</h4>
+            <ul>
+              <li>Industria automotriz</li>
+              <li>Logística</li>
+              <li>Gestión de calidad</li>
+              <li>Transformación de plásticos (plasturgia)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tercer nivel -->
+      <div class="education-item">
+        <div class="education-header">
+          <div class="education-info">
+            <h3><strong>Bachillerato en Ciencias Físicas y Químicas (opción francesa)</strong></h3>
+            <div class="education-duration">2022 – 2023</div>
+            <div class="institute-name">Liceo Ibn Zohr │ Tánger</div>
+          </div>
+          <img src="images/ibn-zohr-logo.png" alt="Liceo Ibn Zohr" class="institute-logo">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Habilidades -->
+  <div id="skills" class="portfolio-content">
+    <div class="card">
+      <h2>Habilidades Técnicas</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h4>Gestión e Ingeniería Industrial</h4>
+          <ul>
+            <li>Gestión de proyectos: Agile (Scrum), Método FAST, Diagramas de Gantt, Poka-Yoke</li>
+            <li>Lean Manufacturing y Mejora continua: Kaizen, 5 Porqués, Ishikawa, 5S, Pareto</li>
+            <li>Calidad y Fiabilidad: Análisis MTBF/MTTR, 5W2H</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h4>Programación y Desarrollo de Software</h4>
+          <ul>
+            <li>Escritorio: C/C++ (Arduino, Dev-C++), mikroC</li>
+            <li>Web: Java, JavaScript, PHP, HTML5, CSS3</li>
+            <li>Móvil: Java (Desarrollo Android)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h4>Electricidad y Tecnologías Industriales</h4>
+          <ul>
+            <li>Electricidad industrial y Electrotécnica</li>
+            <li>Instrumentación y sensores</li>
+            <li>Transformación de plásticos (plasturgia)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h4>Automatización y Herramientas de Simulación</h4>
+          <ul>
+            <li>Siemens TIA Portal (Programación PLC)</li>
+            <li>MATLAB / Simulink</li>
+            <li>Simumatik</li>
+            <li>PLCnext</li>
+            <li>FluidSIM (Neumática e Hidráulica)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h4>Herramientas de Diseño y CAD</h4>
+          <ul>
+            <li>SolidWorks</li>
+            <li>CATIA V5</li>
+            <li>Proteus (Electrónica y Simulación PCB)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h4>Entornos de Desarrollo y Herramientas</h4>
+          <ul>
+            <li>Visual Studio Code, IntelliJ IDEA, Android Studio</li>
+            <li>FlatCAM y Universal G-code Sender (UGS)</li>
+            <li>Suite Microsoft Office (nivel avanzado)</li>
+            <li>JIRA (Seguimiento de proyectos)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificaciones -->
+  <div id="certifications" class="portfolio-content">
+    <div class="card">
+      <h2>Certificaciones</h2>
+
+      <div class="certifications-grid">
+
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="certificats/Leader Future/1.jpeg" alt="RRHH e Inteligencia Artificial" loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Recursos Humanos e Inteligencia Artificial: Oportunidades y Desafíos</h3>
+            <div class="cert-org">Future Leaders Club</div>
+            <div class="cert-detail">Emitida: Febrero 2026</div>
+          </div>
+        </div>
+
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="certificats/Udemy/1.jpg" alt="Certificado Agile y Scrum" loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Certificado Profesional Analista de Negocios Agile y Scrum por MTF Institute</h3>
+            <div class="cert-org">Udemy</div>
+            <div class="cert-detail">ID del diploma: UC-a262f76c-d431-4ce1-9eb1-912a725a6de9</div>
+            <div class="cert-detail">Emitida: 11 de diciembre de 2025</div>
+            <a href="https://www.udemy.com/certificate/UC-a262f76c-d431-4ce1-9eb1-912a725a6de9/" target="_blank" class="cert-link">Ver certificado →</a>
+          </div>
+        </div>
+
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="certificats/Code and copile/2.jpg" alt="PLCnext" loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">PLCnext - Next Generation PLC</h3>
+            <div class="cert-org">Code and Compile</div>
+            <div class="cert-detail">ID del diploma: 69306a9f3d1dcbc92b0f410f</div>
+            <div class="cert-detail">Emitida: 3 de diciembre de 2025</div>
+            <a href="https://mycourse.app/IFUoArdOtJ9QdlRBs" target="_blank" class="cert-link">Ver certificado →</a>
+          </div>
+        </div>
+
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="certificats/Code and copile/1.jpg" alt="Mechatronics and IIoT" loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Mecatrónica e Internet Industrial de las Cosas</h3>
+            <div class="cert-org">Code and Compile</div>
+            <div class="cert-detail">ID del diploma: 6891089399f50a2e070c0a27</div>
+            <div class="cert-detail">Emitida: 4 de agosto de 2025</div>
+            <a href="https://mycourse.app/Ko1GddeTmKrecgbbQ" target="_blank" class="cert-link">Ver certificado →</a>
+          </div>
+        </div>
+
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="certificats/LinkedIn/1.jpg" alt="Fundamentos IA" loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Fundamentos de la Inteligencia Artificial</h3>
+            <div class="cert-org">LinkedIn Learning</div>
+            <div class="cert-detail">ID del diploma: f9aecac4e040506d35074e17dc1fef0954d6462668271ebd2e8729061b1f8431</div>
+            <div class="cert-detail">Emitida: 23 de junio de 2025</div>
+            <a href="https://www.linkedin.com/learning/certificates/f9aecac4e040506d35074e17dc1fef0954d6462668271ebd2e8729061b1f8431?trk=share_certificate" target="_blank" class="cert-link">Ver certificado →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Idiomas -->
+  <div id="languages" class="portfolio-content">
+    <div class="card">
+      <h2>Idiomas</h2>
+
+      <div class="languages-grid">
+
+        <div class="language-card">
+          <h4>Lengua materna</h4>
+          <ul>
+            <li>Árabe</li>
+          </ul>
+        </div>
+
+        <div class="language-card">
+          <h4>Nivel intermedio</h4>
+          <ul>
+            <li>Francés</li>
+            <li>Inglés</li>
+          </ul>
+        </div>
+
+        <div class="language-card">
+          <h4>Nivel principiante</h4>
+          <ul>
+            <li>Español</li>
+          </ul>
+        </div>
+
+        <div class="language-card">
+          <h4>Conocimientos básicos</h4>
+          <ul>
+            <li>Turco</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Captura de pantalla en tamaño completo">
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.portfolio-nav button[data-target]');
+    const sections = document.querySelectorAll('.portfolio-content');
+
+    function showSection(targetId) {
+      sections.forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.querySelector(`button[data-target="${targetId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-target');
+        showSection(target);
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.screenshot-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const fullSrc = link.getAttribute('data-full');
+        lightboxImg.src = fullSrc;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+  });
+</script>
+
+</body>
+</html>
