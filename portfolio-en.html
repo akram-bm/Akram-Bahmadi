@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BAHMADI Akram - Portfolio</title>
 
-  <!-- Favicon (logo in browser tab) -->
+  <!-- Favicon -->
   <link rel="icon" href="images/logo1.png" type="image/png">
 
   <style>
@@ -131,7 +131,7 @@
       font-size: 1.9rem;
     }
 
-    /* Shared styles for Experience, Projects & Education */
+    /* Shared styles */
     .experience-item, .project-item, .education-item {
       margin-bottom: 2.8rem;
       padding-bottom: 2rem;
@@ -183,7 +183,7 @@
       color: var(--primary);
     }
 
-    /* Grid for Education & Skills Modules (shared style) */
+    /* Grid for Education & Skills */
     .education-grid,
     .skills-grid {
       display: grid;
@@ -242,6 +242,90 @@
       font-weight: bold;
     }
 
+    /* Certifications Grid – 2-column layout */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .certification-item {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .certification-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(99, 102, 241, 0.35);
+      border-color: var(--primary);
+    }
+
+    .cert-img-container {
+      flex: 0 0 40%;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+    }
+
+    .cert-img-container img {
+      max-width: 100%;
+      max-height: 240px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .cert-info {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cert-title {
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cert-org {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .cert-detail {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cert-link {
+      margin-top: 1.2rem;
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .cert-link:hover {
+      color: #a5b4fc;
+      text-decoration: underline;
+    }
+
     .screenshots-grid {
       margin-top: 1.8rem;
     }
@@ -279,7 +363,7 @@
       object-fit: cover;
     }
 
-    /* Lightbox Modal */
+    /* Lightbox */
     #lightbox {
       display: none;
       position: fixed;
@@ -298,6 +382,18 @@
       border-radius: 8px;
       box-shadow: 0 0 40px rgba(0,0,0,0.7);
       pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .certification-item {
+        flex-direction: column;
+      }
+      .cert-img-container {
+        padding: 1.5rem 1rem 0.8rem;
+      }
+      .cert-info {
+        padding: 1.8rem;
+      }
     }
 
     @media (max-width: 640px) {
@@ -333,16 +429,17 @@
     <button class="btn" data-target="languages">Languages</button>
   </nav>
 
-  <!-- Sections -->
+  <!-- Home -->
   <div id="home" class="portfolio-content active">
     <div class="card">
       <h2>Welcome</h2>
       <p>I'm Akram, a passionate automation engineer and software developer based in Tangier.</p>
       <p>Welcome to my professional portfolio — feel free to explore my career journey, projects, technical skills, academic background, certifications, and language proficiency.</p>
-      <p> the navigation above to discover each section.</p>
+      <p>Use the navigation above to discover each section.</p>
     </div>
   </div>
 
+  <!-- Experience -->
   <div id="experience" class="portfolio-content">
     <div class="card">
       <h2>Professional Experience</h2>
@@ -530,7 +627,7 @@
     </div>
   </div>
 
-  <!-- PROJECTS SECTION -->
+  <!-- Projects -->
   <div id="projects" class="portfolio-content">
     <div class="card">
       <h2>Projects</h2>
@@ -721,7 +818,7 @@
     </div>
   </div>
 
-  <!-- EDUCATION SECTION -->
+  <!-- Education -->
   <div id="education" class="portfolio-content">
     <div class="card">
       <h2>Education</h2>
@@ -898,7 +995,7 @@
     </div>
   </div>
 
-  <!-- SKILLS SECTION – Now using the same grid style as Education -->
+  <!-- Skills -->
   <div id="skills" class="portfolio-content">
     <div class="card">
       <h2>Technical Skills</h2>
@@ -964,13 +1061,83 @@
     </div>
   </div>
 
+  <!-- Certifications – 2-column grid layout -->
   <div id="certifications" class="portfolio-content">
     <div class="card">
       <h2>Certifications</h2>
-      <p>Professional certifications in automation, programming, and related technical domains.</p>
+
+      <div class="certifications-grid">
+
+        <!-- Certification 1 -->
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="images/certifications/cert-angular.jpg" alt="Angular Complete Guide Certificate">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Angular - The Complete Guide (2025 Edition)</h3>
+            <div class="cert-org">Udemy / Maximilian Schwarzmüller</div>
+            <div class="cert-detail">Diploma ID: UC-abc123xyz789</div>
+            <a href="https://www.udemy.com/certificate/UC-abc123xyz789/" target="_blank" class="cert-link">View Certificate →</a>
+          </div>
+        </div>
+
+        <!-- Certification 2 -->
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="images/certifications/cert-webdev.jpg" alt="Zero to Mastery Web Developer Certificate">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">The Complete Web Developer in 2025: Zero to Mastery</h3>
+            <div class="cert-org">Zero To Mastery Academy / Andrei Neagoie</div>
+            <div class="cert-detail">Diploma ID: ZTM-WD-456DEF</div>
+            <a href="https://zerotomastery.io/certificates/ztm-wd-456def" target="_blank" class="cert-link">View Certificate →</a>
+          </div>
+        </div>
+
+        <!-- Certification 3 -->
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="images/certifications/cert-python.jpg" alt="Python for Data Science Certificate">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Python for Data Science and Machine Learning Bootcamp</h3>
+            <div class="cert-org">Udemy / Jose Portilla</div>
+            <div class="cert-detail">Diploma ID: UC-987ghi321jkl</div>
+            <a href="https://www.udemy.com/certificate/UC-987ghi321jkl/" target="_blank" class="cert-link">View Certificate →</a>
+          </div>
+        </div>
+
+        <!-- Certification 4 -->
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="images/certifications/cert-solidworks.jpg" alt="CSWA SolidWorks Certificate">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Certified SOLIDWORKS Associate (CSWA)</h3>
+            <div class="cert-org">Dassault Systèmes – SolidWorks Corporation</div>
+            <div class="cert-detail">Diploma ID: SW-CS-2024-56789</div>
+            <a href="https://www.solidworks.com/certification/cswa" target="_blank" class="cert-link">View Certificate →</a>
+          </div>
+        </div>
+
+        <!-- Certification 5 -->
+        <div class="certification-item">
+          <div class="cert-img-container">
+            <img src="images/certifications/cert-google-python.jpg" alt="Google IT Automation Certificate">
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Google IT Automation with Python Professional Certificate</h3>
+            <div class="cert-org">Google / Coursera</div>
+            <div class="cert-detail">Diploma ID: COUR-XYZ987654</div>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/ABC123XYZ" target="_blank" class="cert-link">View Certificate →</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
+  <!-- Languages -->
   <div id="languages" class="portfolio-content">
     <div class="card">
       <h2>Languages</h2>
