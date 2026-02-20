@@ -34,7 +34,7 @@
     h1 {
       font-size: 2.8rem;
       text-align: center;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.4rem;
       color: white;
       letter-spacing: -0.5px;
     }
@@ -131,7 +131,107 @@
       font-size: 1.9rem;
     }
 
-    /* Shared styles */
+    /* Home section specific styles */
+    .home-title {
+      text-align: center;
+      color: white;
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .home-subtitle {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .home-section-title {
+      text-align: center;
+      color: white;
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .home-intro-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      text-align: center;
+    }
+
+    .home-intro-card p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    /* Grid for roles and achievements */
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .home-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 12px;
+      padding: 1.6rem;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .home-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+    }
+
+    .home-card h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+      padding-bottom: 0.6rem;
+    }
+
+    .home-card p, .home-card ul {
+      font-size: 1rem;
+    }
+
+    .home-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .home-card li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .home-card li::before {
+      content: "→";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .vision-card {
+      background: rgba(99, 102, 241, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--primary);
+      margin: 3rem 0 1rem;
+    }
+
+    /* Shared styles for other sections */
     .experience-item, .project-item, .education-item {
       margin-bottom: 2.8rem;
       padding-bottom: 2rem;
@@ -401,6 +501,9 @@
       .cert-info {
         padding: 1.8rem;
       }
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
@@ -436,14 +539,67 @@
     <button class="btn" data-target="languages">Languages</button>
   </nav>
 
-  <!-- Home -->
+  <!-- Home / Welcome - Integrated your text in grid layout -->
   <div id="home" class="portfolio-content active">
     <div class="card">
-      <h2>Portfolio</h2>
-      <h3>Bridging Industrial Automation & Digital Innovation</h3>
-      <p>I'm Akram, a passionate automation engineer and software developer based in Tangier.</p>
-      <p>Welcome to my professional portfolio — feel free to explore my career journey, projects, technical skills, academic background, certifications, and language proficiency.</p>
-      <p>Use the navigation above to discover each section.</p>
+
+      <h2 class="home-title">Portfolio</h2>
+      <h3 class="home-subtitle">Bridging Industrial Automation & Digital Innovation</h3>
+
+      <!-- Who I Am -->
+      <div class="home-intro-card">
+        <h3>Who I Am</h3>
+        <p>I’m Akram Bahmadi, a Specialized Technician in Automated Industrial Systems and a Web & Mobile Developer. I operate at the intersection of industrial engineering and digital technology, combining hands-on hardware expertise with software skills to create smart, connected solutions.</p>
+      </div>
+
+      <!-- Roles I Can Take -->
+      <h3 class="home-section-title">Roles I Can Take</h3>
+      <div class="home-grid">
+        <div class="home-card">
+          <h4>Technicien Ingénierie</h4>
+          <p>Designing and modeling industrial systems</p>
+        </div>
+        <div class="home-card">
+          <h4>Technicien Process</h4>
+          <p>Optimizing workflows and production processes</p>
+        </div>
+        <div class="home-card">
+          <h4>Technicien Méthode</h4>
+          <p>Planning and implementing efficient methods</p>
+        </div>
+        <div class="home-card">
+          <h4>Technicien Qualité</h4>
+          <p>Ensuring standards and system reliability</p>
+        </div>
+        <div class="home-card">
+          <h4>Technicien Maintenance</h4>
+          <p>Maintaining, troubleshooting, and improving automated equipment</p>
+        </div>
+      </div>
+
+      <!-- What I’ve Done -->
+      <h3 class="home-section-title">What I’ve Done</h3>
+      <div class="home-grid">
+        <div class="home-card">
+          <p>Industrial diagnostics and electrical test maintenance with Valeo, EMDEP, and Expleo</p>
+        </div>
+        <div class="home-card">
+          <p>Full-stack web and mobile development with Java, JavaScript, PHP, and modern frameworks</p>
+        </div>
+        <div class="home-card">
+          <p>PLC programming (TIA Portal, PLCnext), MATLAB/Simulink modeling, and CAD design with SolidWorks and Proteus</p>
+        </div>
+        <div class="home-card">
+          <p>Led cross-functional teams for projects like CNC PCB engraving machines and educational digital models</p>
+        </div>
+      </div>
+
+      <!-- My Vision -->
+      <div class="vision-card">
+        <h3>My Vision</h3>
+        <p>I aim to combine AI, programming, and Industry 4.0 technologies to create intelligent, automated industrial systems that are efficient, adaptive, and fully connected.</p>
+      </div>
+
     </div>
   </div>
 
@@ -1148,7 +1304,7 @@
     </div>
   </div>
 
-  <!-- Languages – Now as grid with levels -->
+  <!-- Languages -->
   <div id="languages" class="portfolio-content">
     <div class="card">
       <h2>Languages</h2>
