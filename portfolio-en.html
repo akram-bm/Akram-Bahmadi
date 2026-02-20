@@ -146,7 +146,7 @@
     .exp-header, .project-header, .education-header {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* ← Key change: title left, logo right */
+      justify-content: space-between;
       gap: 1.4rem;
       margin-bottom: 1.4rem;
       flex-wrap: wrap;
@@ -163,7 +163,7 @@
     }
 
     .exp-info, .project-info, .education-info {
-      flex: 1; /* Takes available space on the left */
+      flex: 1;
     }
 
     .exp-info h3, .project-info h3, .education-info h3 {
@@ -183,88 +183,8 @@
       color: var(--primary);
     }
 
-    .exp-tasks, .project-tasks, .education-modules {
-      list-style: none;
-      margin: 1.4rem 0;
-      padding-left: 1.6rem;
-    }
-
-    .exp-tasks li, .project-tasks li, .education-modules li {
-      margin-bottom: 0.8rem;
-      position: relative;
-      padding-left: 1.6rem;
-    }
-
-    .exp-tasks li::before, .project-tasks li::before, .education-modules li::before {
-      content: "•";
-      color: var(--primary);
-      position: absolute;
-      left: 0;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .exp-tasks strong, .project-tasks strong, .education-modules strong {
-      display: block;
-      margin: 1.6rem 0 0.9rem;
-      font-size: 1.22rem;
-      color: white;
-    }
-
-/* Grid for Education Modules (same style as Skills) */
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .education-card {
-      background: rgba(30, 41, 59, 0.7);
-      border-radius: 12px;
-      padding: 1.6rem;
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-    }
-
-    .education-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
-      border-color: var(--primary);
-    }
-
-    .education-card h4 {
-      color: var(--primary);
-      margin-bottom: 1.2rem;
-      font-size: 1.3rem;
-      border-bottom: 1px solid rgba(99, 102, 241, 0.3);
-      padding-bottom: 0.6rem;
-    }
-
-    .education-card ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .education-card li {
-      margin-bottom: 0.7rem;
-      padding-left: 1.8rem;
-      position: relative;
-      font-size: 0.98rem;
-    }
-
-    .education-card li::before {
-      content: "→";
-      color: var(--primary);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-
-/* ── NEW: Skills Grid ── */
+    /* Grid for Education & Skills Modules (shared style) */
+    .education-grid,
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -272,6 +192,7 @@
       margin-top: 2rem;
     }
 
+    .education-card,
     .skill-card {
       background: rgba(30, 41, 59, 0.7);
       border-radius: 12px;
@@ -281,12 +202,14 @@
       transition: all 0.3s ease;
     }
 
+    .education-card:hover,
     .skill-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
       border-color: var(--primary);
     }
 
+    .education-card h4,
     .skill-card h4 {
       color: var(--primary);
       margin-bottom: 1.2rem;
@@ -295,12 +218,14 @@
       padding-bottom: 0.6rem;
     }
 
+    .education-card ul,
     .skill-card ul {
       list-style: none;
       padding-left: 0;
       margin: 0;
     }
 
+    .education-card li,
     .skill-card li {
       margin-bottom: 0.7rem;
       padding-left: 1.8rem;
@@ -308,6 +233,7 @@
       font-size: 0.98rem;
     }
 
+    .education-card li::before,
     .skill-card li::before {
       content: "→";
       color: var(--primary);
@@ -315,6 +241,7 @@
       left: 0;
       font-weight: bold;
     }
+
     .screenshots-grid {
       margin-top: 1.8rem;
     }
@@ -603,7 +530,7 @@
     </div>
   </div>
 
-  <!-- PROJECTS SECTION – unchanged -->
+  <!-- PROJECTS SECTION -->
   <div id="projects" class="portfolio-content">
     <div class="card">
       <h2>Projects</h2>
@@ -794,7 +721,7 @@
     </div>
   </div>
 
-  <!-- EDUCATION SECTION – Updated layout: title left, logo right -->
+  <!-- EDUCATION SECTION -->
   <div id="education" class="portfolio-content">
     <div class="card">
       <h2>Education</h2>
@@ -809,50 +736,8 @@
           </div>
           <img src="images/ENSI.png" alt="ENSI" class="institute-logo">
         </div>
-        <ul class="education-modules">
 
-          <strong>Module 1: Introduction to Web & Mobile Development</strong>
-          <li>Semantic HTML5</li>
-          <li>Advanced CSS3 (Flexbox, Grid)</li>
-          <li>Responsive Design and Accessibility</li>
-          <li>Client-Server Architecture (Fundamentals)</li>
-
-          <strong>Module 2: Front-End Development with Angular</strong>
-
-          <strong>Module 3: Back-End Development</strong>
-          <li>MVC Architecture</li>
-          <li>Building RESTful APIs with Spring Boot and .NET</li>
-          <li>Database Integration (MySQL, SQL Server)</li>
-          <li>Authentication and Access Management</li>
-
-          <strong>Module 4: DevOps and Deployment</strong>
-          <li>Git, GitHub, GitHub Actions</li>
-          <li>Docker and Containerization</li>
-
-          <strong>Module 5: Integrated Project</strong>
-          <li>Architecture Design</li>
-          <li>Development Implementation</li>
-          <li>Documentation and Delivery</li>
-
-          <strong>Module 6: Soft Skills</strong>
-          <li>Teamwork and Pair Programming</li>
-          <li>Time Management, Stress Management, and Prioritization</li>
-          <li>Client/Developer Communication</li>
-
-        </ul>
-      </div>
-
-      <!-- Entry 2 -->
-      <div class="education-item">
-        <div class="education-header">
-          <div class="education-info">
-            <h3><strong>Specialized Technician Diploma in Automated Industrial Systems</strong></h3>
-            <div class="education-duration">2023 – 2025</div>
-            <div class="institute-name">Automotive Industry Training Institute (IFMIA TFZ) │ Tangier</div>
-          </div>
-          <img src="images/ifmia.jpg" alt="IFMIA TFZ" class="institute-logo">
-        </div>
-<div class="education-grid">
+        <div class="education-grid">
           <div class="education-card">
             <h4>Module 1: Introduction to Web & Mobile Development</h4>
             <ul>
@@ -865,7 +750,7 @@
 
           <div class="education-card">
             <h4>Module 2: Front-End Development with Angular</h4>
-            <ul></ul> <!-- Empty if no sub-items yet -->
+            <ul></ul>
           </div>
 
           <div class="education-card">
@@ -906,7 +791,7 @@
         </div>
       </div>
 
-      <!-- Entry 2 – IFMIA TFZ -->
+      <!-- Entry 2 -->
       <div class="education-item">
         <div class="education-header">
           <div class="education-info">
@@ -998,7 +883,7 @@
         </div>
       </div>
 
-      <!-- Entry 3 – Baccalaureate -->
+      <!-- Entry 3 -->
       <div class="education-item">
         <div class="education-header">
           <div class="education-info">
@@ -1008,35 +893,17 @@
           </div>
           <img src="images/ibn-zohr-logo.png" alt="Ibn Zohr High School" class="institute-logo">
         </div>
-        <!-- No modules listed in your original for this entry -->
       </div>
 
     </div>
   </div>
 
-
-      <!-- Entry 3 -->
-      <div class="education-item">
-        <div class="education-header">
-          <div class="education-info">
-            <h3><strong>Baccalaureate in Physical and Chemical Sciences (French Option)</strong></h3>
-            <div class="education-duration">2022 – 2023</div>
-            <div class="institute-name">Ibn Zohr High School│ Tangier</div>
-          </div>
-          <img src="images/ibn-zohr-logo.png" alt="Ibn Zohr High School" class="institute-logo">
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-<!-- ── SKILLS SECTION – Redesigned with Grid ── -->
+  <!-- SKILLS SECTION – Now using the same grid style as Education -->
   <div id="skills" class="portfolio-content">
     <div class="card">
       <h2>Technical Skills</h2>
 
       <div class="skills-grid">
-        <!-- 1. Management & Industrial Engineering -->
         <div class="skill-card">
           <h4>Management & Industrial Engineering</h4>
           <ul>
@@ -1046,7 +913,6 @@
           </ul>
         </div>
 
-        <!-- 2. Programming & Software Development -->
         <div class="skill-card">
           <h4>Programming & Software Development</h4>
           <ul>
@@ -1056,7 +922,6 @@
           </ul>
         </div>
 
-        <!-- 3. Electrical & Industrial Technologies -->
         <div class="skill-card">
           <h4>Electrical & Industrial Technologies</h4>
           <ul>
@@ -1066,7 +931,6 @@
           </ul>
         </div>
 
-        <!-- 4. Automation & Simulation Tools -->
         <div class="skill-card">
           <h4>Automation & Simulation Tools</h4>
           <ul>
@@ -1078,7 +942,6 @@
           </ul>
         </div>
 
-        <!-- 5. Design & CAD Tools -->
         <div class="skill-card">
           <h4>Design & CAD Tools</h4>
           <ul>
@@ -1088,7 +951,6 @@
           </ul>
         </div>
 
-        <!-- 6. Development Environments & Other Tools -->
         <div class="skill-card">
           <h4>Development Environments & Tools</h4>
           <ul>
@@ -1112,7 +974,7 @@
   <div id="languages" class="portfolio-content">
     <div class="card">
       <h2>Languages</h2>
-      <p>English • French</p>
+      <p>English • French • Spanish</p>
     </div>
   </div>
 
