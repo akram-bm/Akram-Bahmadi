@@ -183,9 +183,10 @@
       color: var(--primary);
     }
 
-    /* Grid for Education & Skills */
+    /* Grid for Education, Skills & Languages */
     .education-grid,
-    .skills-grid {
+    .skills-grid,
+    .languages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 1.5rem;
@@ -193,7 +194,8 @@
     }
 
     .education-card,
-    .skill-card {
+    .skill-card,
+    .language-card {
       background: rgba(30, 41, 59, 0.7);
       border-radius: 12px;
       padding: 1.6rem;
@@ -203,14 +205,16 @@
     }
 
     .education-card:hover,
-    .skill-card:hover {
+    .skill-card:hover,
+    .language-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
       border-color: var(--primary);
     }
 
     .education-card h4,
-    .skill-card h4 {
+    .skill-card h4,
+    .language-card h4 {
       color: var(--primary);
       margin-bottom: 1.2rem;
       font-size: 1.3rem;
@@ -219,14 +223,16 @@
     }
 
     .education-card ul,
-    .skill-card ul {
+    .skill-card ul,
+    .language-card ul {
       list-style: none;
       padding-left: 0;
       margin: 0;
     }
 
     .education-card li,
-    .skill-card li {
+    .skill-card li,
+    .language-card li {
       margin-bottom: 0.7rem;
       padding-left: 1.8rem;
       position: relative;
@@ -234,7 +240,8 @@
     }
 
     .education-card li::before,
-    .skill-card li::before {
+    .skill-card li::before,
+    .language-card li::before {
       content: "→";
       color: var(--primary);
       position: absolute;
@@ -1061,7 +1068,7 @@
     </div>
   </div>
 
-  <!-- Certifications – Updated with dates -->
+  <!-- Certifications -->
   <div id="certifications" class="portfolio-content">
     <div class="card">
       <h2>Certifications</h2>
@@ -1140,11 +1147,47 @@
     </div>
   </div>
 
-  <!-- Languages -->
+  <!-- Languages – Now as grid with levels -->
   <div id="languages" class="portfolio-content">
     <div class="card">
       <h2>Languages</h2>
-      <p>English</p>
+
+      <div class="languages-grid">
+
+        <!-- Native -->
+        <div class="language-card">
+          <h4>Native</h4>
+          <ul>
+            <li>Arabic</li>
+          </ul>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="language-card">
+          <h4>Intermediate</h4>
+          <ul>
+            <li>French</li>
+            <li>English</li>
+          </ul>
+        </div>
+
+        <!-- Beginner -->
+        <div class="language-card">
+          <h4>Beginner</h4>
+          <ul>
+            <li>Spanish</li>
+          </ul>
+        </div>
+
+        <!-- Basic -->
+        <div class="language-card">
+          <h4>Basic Knowledge</h4>
+          <ul>
+            <li>Turkish</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 
