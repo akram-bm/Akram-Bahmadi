@@ -3,22 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sur moi</title>
+  <title>À propos de moi – BAHMADI Akram</title>
 
-    <!-- Favicon (logo dans l'onglet du navigateur) -->
+  <!-- Favicon -->
   <link rel="icon" href="images/logo1.png" type="image/png">
+
+  <!-- Google Fonts (Inter + Fira Code) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Ton fichier CSS externe -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- MATRIX RAIN -->
+  <canvas id="matrix-bg"></canvas>
+
+  <!-- ÉLÉMENTS ROBOTIQUES -->
+  <div class="robotic-bg">
+    <div class="particles">
+      <div class="particle" style="--size:7px; --top:10%; --left:5%; --dur:19s; --delay:0s;"></div>
+      <div class="particle" style="--size:10px; --top:22%; --left:38%; --dur:26s; --delay:3s;"></div>
+      <div class="particle" style="--size:6px; --top:58%; --left:72%; --dur:17s; --delay:5.5s;"></div>
+      <div class="particle" style="--size:9px; --top:48%; --left:92%; --dur:23s; --delay:1.8s;"></div>
+      <div class="particle" style="--size:8px; --top:78%; --left:18%; --dur:30s; --delay:4.2s;"></div>
+      <div class="particle" style="--size:11px; --top:15%; --left:62%; --dur:21s; --delay:9s;"></div>
+    </div>
+
+    <div class="robot-arm" style="--top:15%; --left:4%; --rot-start:-35deg; --dur:14s;"></div>
+    <div class="robot-arm" style="--top:68%; --right:8%; --rot-start:160deg; --dur:16s; --delay:4s;"></div>
+    <div class="robot-arm" style="--top:42%; --left:78%; --rot-start:-15deg; --dur:19s; --delay:8s;"></div>
+
+    <div class="gear" style="--top:20%; --right:16%; --size:80px; --dur:32s;"></div>
+    <div class="gear" style="--top:72%; --left:9%; --size:100px; --dur:38s; --delay:6s;"></div>
+  </div>
+
+  <!-- OVERLAY CODE (effet typewriter) -->
+  <div class="code-editor-overlay">
+    <div class="code-line">class AkramBahmadi extends Ingenieur {</div>
+    <div class="code-line">  competences = ["Automatisme", "Développement Full-Stack", "IA", "Industrie 4.0"];</div>
+    <div class="code-line">  constructor() { super("Innovation & Précision"); }</div>
+    <div class="code-line">}</div>
+  </div>
+
   <section class="landing about">
     <div class="overlay"></div>
+
     <div class="content">
-      <img src="images/LinkedIn.png" alt="Akram Bahmadi">
+      <img src="images/LinkedIn.png" alt="Akram Bahmadi" class="profile-img fade-in">
+
       <h1 class="fade-in">BAHMADI Akram</h1>
       <h2 class="fade-in delay-1">Technicien en Systèmes Industriels Automatisés & Développeur</h2>
       <p class="fade-in delay-2">
-        Bonjour ! Je suis Akram, combinant mon expertise en automatisation avec des compétences en développement logiciel pour créer des solutions innovantes.
+        Je combine l'automatisme industriel avec des compétences en développement logiciel pour concevoir des solutions innovantes, intelligentes et connectées.
       </p>
 
       <div class="lang-buttons fade-in delay-3">
@@ -27,10 +64,66 @@
         <a href="portfolio-fr.html" class="btn">Portfolio</a>
         <a href="portfolio.pdf" download class="btn">Télécharger le Portfolio</a>
         <a href="https://www.linkedin.com/in/akram-bahmadi" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
-        <a href="contact.html" class="btn">Me Contacter</a>
+        <a href="contact.html" class="btn">Me contacter</a>
       </div>
     </div>
   </section>
+
+  <script>
+    // MATRIX RAIN
+    const canvas = document.getElementById('matrix-bg');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
+
+      function draw() {
+        ctx.fillStyle = 'rgba(5,7,15,0.06)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = 'rgba(0,224,255,0.7)';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = chars.charAt(Math.floor(Math.random() * chars.length));
+          const x = i * fontSize;
+          const y = drops[i] * fontSize;
+
+          ctx.fillText(text, x, y);
+
+          if (y > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 50);
+    }
+
+    // Fade-in simple pour les éléments
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
