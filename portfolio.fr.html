@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>En Maintenance - BAHMADI Akram Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg-primary:     #03050c;
+      --accent-cyan:    #00f0ff;
+      --accent-blue:    #30d0ff;
+      --text-primary:   #f0faff;
+      --text-muted:     #a0e0ff;
+      --glow-cyan:      0 0 30px rgba(0, 240, 255, 0.7);
+      --glow-strong:    0 0 70px rgba(0, 240, 255, 0.5);
+      --code-green:     #b5ffc8;
+      --warning-red:    #ff4d4d;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* MATRIX RAIN (légèrement accélérée) */
+    #matrix-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    /* ─── MAINTENANCE ICONS ──────────────────────────────────────── */
+    .maintenance-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .icon-wrapper {
+      width: 90px;
+      height: 90px;
+      position: relative;
+    }
+
+    .maintenance-icon {
+      width: 100%;
+      height: 100%;
+      stroke: var(--accent-cyan);
+      stroke-width: 2.5;
+      fill: none;
+      filter: drop-shadow(var(--glow-cyan));
+      animation: iconPulse 3.5s infinite alternate ease-in-out;
+    }
+
+    .gear-icon   { animation-duration: 8s; animation: gearSpin 18s linear infinite; }
+    .hammer-icon { animation-duration: 2.8s; transform-origin: 50% 85%; }
+    .wrench-icon { animation-duration: 3.2s; transform-origin: 50% 50%; }
+    .warning-icon{ animation-duration: 1.8s; }
+
+    @keyframes iconPulse {
+      0%   { opacity: 0.6; transform: scale(0.92); }
+      100% { opacity: 1.0; transform: scale(1.08); }
+    }
+
+    @keyframes gearSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ─── TITLE ANIMATIONS ───────────────────────────────────────── */
+    .title-wrapper {
+      position: relative;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    h1 {
+      font-size: clamp(4.2rem, 13vw, 9.5rem);
+      font-weight: 900;
+      letter-spacing: -5px;
+      background: linear-gradient(90deg, var(--accent-cyan), #ffffff, var(--accent-cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow-strong);
+      animation: neonPulse 4s ease-in-out infinite alternate, glitch 6s infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes neonPulse {
+      0%   { text-shadow: 0 0 30px rgba(0,240,255,0.6), 0 0 60px rgba(0,240,255,0.4); }
+      100% { text-shadow: 0 0 80px rgba(0,240,255,1),   0 0 120px rgba(0,240,255,0.6); }
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      2%, 64%  { transform: translate(2px, -2px); }
+      4%, 60%  { transform: translate(-2px, 2px); }
+      62%      { transform: translate(0); }
+    }
+
+    .subtitle {
+      font-size: clamp(1.5rem, 5vw, 2.3rem);
+      color: var(--text-muted);
+      margin: 0 0 3rem;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Code window + autres styles conservés mais simplifiés ici pour la lisibilité */
+    .code-window {
+      background: rgba(6,12,30,0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0,240,255,0.4);
+      border-radius: 16px;
+      padding: 2.5rem 2.8rem 2rem;
+      margin: 0 auto 3rem;
+      max-width: 880px;
+      font-family: 'Fira Code', monospace;
+      font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+      color: var(--code-green);
+      text-align: left;
+      box-shadow: var(--glow-cyan);
+      position: relative;
+    }
+
+    .code-window::before {
+      content: "maintenance-core-v4.js";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: rgba(0,240,255,0.2);
+      color: var(--accent-cyan);
+      padding: 0.7rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .code-line {
+      margin: 0.8rem 0;
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: typeAppear 1.4s forwards;
+    }
+
+    .code-line:nth-child(1) { animation-delay: 0.6s; }
+    .code-line:nth-child(2) { animation-delay: 1.8s; }
+    .code-line:nth-child(3) { animation-delay: 3.0s; }
+    .code-line:nth-child(4) { animation-delay: 4.2s; }
+    .code-line:nth-child(5) { animation-delay: 5.4s; }
+
+    @keyframes typeAppear {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .blink-cursor {
+      display: inline-block;
+      width: 12px;
+      height: 1.3em;
+      background: var(--accent-cyan);
+      animation: blinkCursor 0.85s step-end infinite;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    @keyframes blinkCursor {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="matrix-bg"></canvas>
+
+  <div class="maintenance-container">
+    <div class="maintenance-icons">
+      <!-- Gear -->
+      <div class="icon-wrapper">
+        <svg class="maintenance-icon gear-icon" viewBox="0 0 24 24">
+          <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z"/>
+          <path d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.566.566 0 0 0-.18.03.5.5 0 0 0-.43.5l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.13.03.18.03a.5.5 0 0 0 .43-.5l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65z"/>
+        </svg>
+      </div>
+
+      <!-- Hammer -->
+      <div class="icon-wrapper">
+        <svg class="maintenance-icon hammer-icon" viewBox="0 0 24 24">
+          <path d="M3 5v14h18V5H3zm2 2h14v10H5V7z"/>
+          <path d="M8 10h8v2H8v-2z"/>
+        </svg>
+      </div>
+
+      <!-- Wrench / Spanner -->
+      <div class="icon-wrapper">
+        <svg class="maintenance-icon wrench-icon" viewBox="0 0 24 24">
+          <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+        </svg>
+      </div>
+
+      <!-- Warning triangle -->
+      <div class="icon-wrapper">
+        <svg class="maintenance-icon warning-icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.5L20.5 19H3.5L12 5.5z"/>
+          <path d="M11 16h2v2h-2v-2zm0-6h2v4h-2v-4z"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1>Under Maintenance</h1>
+
+    <div class="subtitle">
+      Le portfolio est en cours d'optimisation intensive et de reconstruction.<br>
+      On revient très bientôt – encore plus performant.
+    </div>
+
+    <div class="code-window">
+      <div class="code-line">console.log("Maintenance sequence initiated...");</div>
+      <div class="code-line">await upgradePortfolio({ phase: "heavy", priority: "critical" });</div>
+      <div class="code-line">injectIndustry40Layer({ aiCore: true, realTime: true });</div>
+      <div class="code-line">Running diagnostics • Compressing • Securing • Optimizing...</div>
+      <div class="code-line">Status: <strong>IN PROGRESS</strong> <span class="blink-cursor"></span></div>
+    </div>
+
+    <div class="estimated-time">
+      Retour estimé : <strong>bientôt</strong> • Merci pour votre patience !
+    </div>
+  </div>
+
+  <script>
+    // Matrix rain plus dynamique
+    const canvas = document.getElementById('matrix-bg');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン█▓▒░ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
+      const fontSize = 15;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
+      const speeds = drops.map(() => Math.random() * 1.2 + 0.8);
+
+      function draw() {
+        ctx.fillStyle = 'rgba(5,7,15,0.10)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = 'rgba(0,240,255,0.78)';
+        ctx.font = fontSize + 'px monospace';
+
+        drops.forEach((y, i) => {
+          const text = chars.charAt(Math.floor(Math.random() * chars.length));
+          ctx.fillText(text, i * fontSize, y * fontSize);
+
+          if (y * fontSize > canvas.height && Math.random() > 0.965) {
+            drops[i] = 0;
+          }
+          drops[i] += speeds[i];
+        });
+      }
+
+      setInterval(draw, 35); // plus rapide
+    }
+  </script>
+</body>
+</html>
